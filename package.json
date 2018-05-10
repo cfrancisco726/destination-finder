@@ -1,19 +1,26 @@
 {
-  "name": "flight-inspiration",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cfrancisco726/flight-inspiration.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cfrancisco726/flight-inspiration/issues"
-  },
-  "homepage": "https://github.com/cfrancisco726/flight-inspiration#readme"
+	"name": "flight-inspiration",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"engines": {
+		"node": "9.7.1",
+		"npm": "5.6.0"
+	},
+	"scripts": {
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cfrancisco726/flight-inspiration.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/cfrancisco726/flight-inspiration/issues"
+	},
+	"homepage": "https://github.com/cfrancisco726/flight-inspiration#readme",
+	"dependencies": {
+		"express": "^4.16.3"
+	}
 }
