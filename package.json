@@ -12,14 +12,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/cfrancisco726/flight-inspiration.git"
+		"url": "git+https://github.com/cfrancisco726/destination-finder.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/cfrancisco726/flight-inspiration/issues"
+		"url": "https://github.com/cfrancisco726/destination-finder/issues"
 	},
-	"homepage": "https://github.com/cfrancisco726/flight-inspiration#readme",
+	"homepage": "https://github.com/cfrancisco726/destination-finder#readme",
 	"dependencies": {
 		"express": "^4.16.3"
 	}
