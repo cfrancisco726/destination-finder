@@ -1,13 +1,18 @@
+import 'materialize-css/dist/css/materialize.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reduxThunk from 'redux-thunk';
 
-// ReactDOM.render(<App />, document.querySelector('#root'));
+import App from './components/App';
+import reducers from './reducers';
+
+const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-	<App />,
-	// created a redux store an hooked up to react side of app by placing provider tag
-	// provider tag knows how to read changes from our redux store
-	// anytime the redux store gets new state produced inside it the provider will inform all its children components App and update with new state
+	<Provider store={store}>
+		<App />
+	</Provider>,
 	document.querySelector('#root')
 );
