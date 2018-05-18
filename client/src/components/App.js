@@ -7,6 +7,7 @@ import Header from './Header';
 import Landing from './Landing';
 import DestinationList from './DestinationList';
 import MapList from './MapList';
+import '../App.css';
 
 class App extends Component {
 	componentDidMount() {

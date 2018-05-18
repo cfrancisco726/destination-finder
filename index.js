@@ -5,6 +5,7 @@ const passport = require('passport');
 const keys = require('./config/keys');
 
 require('./models/User');
+require('./models/Destination');
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -27,8 +28,8 @@ if (process.env.NODE_ENV === 'production') {
 
 	const path = require('path');
 	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'))
-	})
+		res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html'));
+	});
 }
 
 const PORT = process.env.PORT || 5000;
