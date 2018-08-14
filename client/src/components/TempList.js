@@ -29,9 +29,9 @@ class TempList extends Component {
 	}
 
 	render() {
-		const tripOrigin = this.props.destination;
-		const currency = this.props.trip.currency;
-		const trips = this.props.trip.results;
+		const tripOrigin = this.props.origin;
+		const currency = this.props.currency;
+		// const trips = this.props.trip.results;
 		// const airportMatch = airportCodes.filter(airport => {
 		// 	return airport.code === 'AAA';
 		// });
