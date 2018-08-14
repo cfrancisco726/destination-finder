@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// const airportCodes = require('../airports.js');
+import { bindActionCreators } from 'redux';
+import { fetchTrip } from '../actions/index';
 
 class TempList extends Component {
 	constructor(props) {
@@ -8,6 +9,7 @@ class TempList extends Component {
 	}
 
 	renderTrips() {
+		console.log(this.props.trip.results);
 		if (this.props.trip.results) {
 			const trips = this.props.trip.results.slice(0, 9);
 			return trips.map(trip => {
@@ -33,7 +35,7 @@ class TempList extends Component {
 		// const airportMatch = airportCodes.filter(airport => {
 		// 	return airport.code === 'AAA';
 		// });
-		console.log(trips);
+		// console.log(trips);
 		// console.log(airportMatch);
 
 		return (
@@ -49,5 +51,9 @@ class TempList extends Component {
 function mapStateToProps({ trip }) {
 	return { trip };
 }
+// 	function MapDispatchToProps(dispatch) {
+// 		return bindActionCreators({ fetchTrip }, dispatch);
+// 	}
+// }
 
-export default connect(mapStateToProps)(TempList);
+export default connect(mapStateToProps, { fetchTrip })(TempList);
