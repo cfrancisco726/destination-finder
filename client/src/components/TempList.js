@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// const airportCodes = require('../airports.js');
 
 class TempList extends Component {
 	constructor(props) {
 		super(props);
-
-		this.props.destination.results = [];
 	}
 
 	renderTrips() {
-		return this.props.destination.results.map(trip => {
-			return (
-				<ul>
-					<li>{trip.destination}</li>
-					<li>{trip.departure_date}</li>
-					<li>{trip.return_date}</li>
-					<li>{trip.price}</li>
-					<li>{trip.airline}</li>
-				</ul>
-			);
-		});
+		if (this.props.trip.results) {
+			const trips = this.props.trip.results.slice(0, 9);
+			return trips.map(trip => {
+				return (
+					<ul>
+						<li>{trip.destination}</li>
+						<li>{trip.departure_date}</li>
+						<li>{trip.return_date}</li>
+						<li>{trip.price}</li>
+						<li>{trip.airline}</li>
+					</ul>
+				);
+			});
+		} else {
+			return [];
+		}
 	}
 
 	render() {
-		const tripOrigin = this.props.destination.origin;
-		const currency = this.props.destination.currency;
-		const trips = this.props.destination.results;
+		const tripOrigin = this.props.destination;
+		const currency = this.props.trip.currency;
+		const trips = this.props.trip.results;
+		// const airportMatch = airportCodes.filter(airport => {
+		// 	return airport.code === 'AAA';
+		// });
 		console.log(trips);
-		// console.log(currency);
+		// console.log(airportMatch);
 
 		return (
 			<div>
@@ -39,8 +46,8 @@ class TempList extends Component {
 	}
 }
 
-function mapStateToProps({ destination }) {
-	return { destination };
+function mapStateToProps({ trip }) {
+	return { trip };
 }
 
 export default connect(mapStateToProps)(TempList);

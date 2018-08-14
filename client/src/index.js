@@ -9,7 +9,11 @@ import ReduxPromise from 'redux-promise';
 import App from './components/App';
 import reducers from './reducers';
 
-const store = createStore(reducers, {}, applyMiddleware(reduxThunk, ReduxPromise));
+const store = createStore(
+	reducers,
+	{},
+	applyMiddleware(reduxThunk, ReduxPromise)
+);
 
 ReactDOM.render(
 	<Provider store={store}>

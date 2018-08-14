@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchDestination } from '../actions/index';
+import { fetchTrip } from '../actions/index';
 
 class SearchForm extends Component {
 	constructor(props) {
@@ -9,10 +9,12 @@ class SearchForm extends Component {
 
 		this.state = {
 			originInput: '',
-			dateInput: ''
+			dateInput: '',
+			durationInput: ''
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
+
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 
@@ -23,11 +25,15 @@ class SearchForm extends Component {
 	onFormSubmit(event) {
 		event.preventDefault();
 
-		this.props.fetchDestination(this.state.originInput, this.state.dateInput);
-		this.setState({
-			originInput: '',
-			dateInput: ''
-		});
+		const trip = [
+			{
+				origin: this.state.originInput,
+				date: this.state.dateInput,
+				duration: this.state.durationInput
+			}
+		];
+		this.props.fetchTrip(trip);
+		this.setState({ originInput: '', dateInput: '', durationInput: '' });
 	}
 	render() {
 		return (
@@ -48,6 +54,14 @@ class SearchForm extends Component {
 					value={this.state.dateInput}
 					onChange={this.onInputChange}
 				/>
+				<input
+					type="text"
+					name="durationInput"
+					placeholder="number of days"
+					className=""
+					value={this.state.durationInput}
+					onChange={this.onInputChange}
+				/>
 				<span>
 					<button type="submit">Submit</button>
 				</span>
@@ -57,7 +71,7 @@ class SearchForm extends Component {
 }
 
 function MapDispatchToProps(dispatch) {
-	return bindActionCreators({ fetchDestination }, dispatch);
+	return bindActionCreators({ fetchTrip }, dispatch);
 }
 
 export default connect(null, MapDispatchToProps)(SearchForm);

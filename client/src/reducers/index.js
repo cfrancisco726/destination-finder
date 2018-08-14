@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
-import destinationReducer from './reducerDestination';
+import { reducer as reduxForm } from 'redux-form';
+import tripReducer from './reducerTrip';
 
 export default combineReducers({
 	auth: authReducer,
-	destination: destinationReducer
+	form: reduxForm,
+	trip: tripReducer
 });

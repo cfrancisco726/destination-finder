@@ -5,7 +5,8 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-import DestinationList from './DestinationList';
+import TripList from './TripList';
+import TripForm from './TripForm';
 import MapList from './MapList';
 import '../App.css';
 
@@ -21,7 +22,7 @@ class App extends Component {
 					<div>
 						<Header />
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/destinationlist" component={DestinationList} />
+						<Route exact path="/destinationlist" component={TripList} />
 						<Route exact path="/maplist" component={MapList} />
 					</div>
 				</BrowserRouter>
