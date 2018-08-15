@@ -19,8 +19,8 @@ module.exports = app => {
 
 		axios
 			.get(URL)
-			.then(response => {
-				const trips = response.data;
+			.then(resp => {
+				const trips = resp.data;
 				console.log(trips);
 				res.send(trips);
 			})
