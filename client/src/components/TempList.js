@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrip } from '../actions/index';
 const airports = require('../airports');
+<<<<<<< HEAD
+=======
+// import airports from '../airports';
+>>>>>>> d4cc0ed09bc8afc81a310f128466513e46592fea
 
 class TempList extends Component {
 	constructor(props) {
@@ -18,7 +22,6 @@ class TempList extends Component {
 	}
 
 	renderTrips() {
-		console.log(this.props.trip.results);
 		if (this.props.trip.results) {
 			const trips = this.props.trip.results.slice(0, 9);
 			return trips.map(trip => {
@@ -29,6 +32,10 @@ class TempList extends Component {
 					const tripCity = newTrip[0].city;
 					const tripLat = newTrip[0].lat;
 					const tripLon = newTrip[0].lon;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d4cc0ed09bc8afc81a310f128466513e46592fea
 					return (
 						<ul>
 							<li>{tripName}</li>
@@ -43,20 +50,12 @@ class TempList extends Component {
 					);
 				}
 			});
-		} else {
-			return [];
 		}
 	}
 
 	render() {
 		const tripOrigin = this.props.origin;
 		const currency = this.props.currency;
-		// const trips = this.props.trip.results;
-		// const airportMatch = airportCodes.filter(airport => {
-		// 	return airport.code === 'AAA';
-		// });
-		// console.log(trips);
-		// console.log(airportMatch);
 
 		return (
 			<div>
