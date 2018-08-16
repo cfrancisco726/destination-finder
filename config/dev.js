@@ -6,5 +6,6 @@ module.exports = {
 		'mongodb://cfrancisco26:msmlab26@ds119800.mlab.com:19800/destination-dev',
 	cookieKey: 'alksjfkajdfljasdfjalsdfjlasdjfljsdf',
 	amadeusKey: 'M7nf7zFHbiBO2D7vDIXYUZ6S52JNAAV1',
-	iataKey: 'af3b5746-69ba-48f5-aa6a-31ca4ee40338'
+	iataKey: 'af3b5746-69ba-48f5-aa6a-31ca4ee40338',
+	googleMap: 'AIzaSyCE-eIQL_ZcgcmYR4iZM9yJhuFpABTz8Io'
 };
