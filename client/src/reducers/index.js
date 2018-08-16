@@ -6,5 +6,5 @@ import tripReducer from './reducerTrip';
 export default combineReducers({
 	auth: authReducer,
 	form: reduxForm,
-	trip: tripReducer
+	trips: tripReducer
 });

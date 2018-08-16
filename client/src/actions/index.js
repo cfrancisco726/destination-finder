@@ -13,5 +13,5 @@ export const fetchTrip = trip => async dispatch => {
 	const res = await axios.post('/api/trip', trip);
 
 	dispatch({ type: FETCH_TRIP, payload: res });
-	console.log('res', res.data.results);
+	console.log('res', res);
 };

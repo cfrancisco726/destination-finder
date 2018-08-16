@@ -32,7 +32,6 @@ module.exports = app => {
 				}
 
 				function tripList() {
-					console.log('trips', tripData.results);
 					const trips = tripData.results.slice(0, 9);
 					return trips.map(trip => {
 						const matchedTrip = airportDetails(trip);
@@ -42,6 +41,8 @@ module.exports = app => {
 								currency: tripData.currency,
 								tripName: matchedTrip[0].name,
 								tripCity: matchedTrip[0].city,
+								tripState: matchedTrip[0].state,
+								tripCountry: matchedTrip[0].country,
 								tripLat: matchedTrip[0].lat,
 								tripLon: matchedTrip[0].lon
 							});
@@ -49,6 +50,7 @@ module.exports = app => {
 					});
 				}
 
+				console.log(tripList());
 				res.send(tripList());
 			})
 			.catch(error => {
