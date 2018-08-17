@@ -33,6 +33,7 @@ module.exports = app => {
 
 				function tripList() {
 					const trips = tripData.results.slice(0, 10);
+					console.log('list', trips);
 					const filteredTrips = trips.map(trip => {
 						const matchedTrip = airportDetails(trip);
 						if (matchedTrip.length > 0) {
@@ -44,7 +45,11 @@ module.exports = app => {
 								state: matchedTrip[0].state,
 								country: matchedTrip[0].country,
 								lat: matchedTrip[0].lat,
-								lng: matchedTrip[0].lon
+								lng: matchedTrip[0].lon,
+								price: trip.price,
+								airline: trip.airline,
+								departure_date: trip.departure_date,
+								return_date: trip.return_date
 							});
 						}
 					});

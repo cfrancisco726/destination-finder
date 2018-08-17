@@ -73,7 +73,7 @@ class GoogleMapsContainer extends Component {
 					style={style}
 					google={this.props.google}
 					onClick={this.onMapClick}
-					zoom={2.5}
+					zoom={3}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
 					{console.log('trip', this.props.trips)}
@@ -81,8 +81,16 @@ class GoogleMapsContainer extends Component {
 					{this.props.trips.map(trip => (
 						<Marker
 							key={trip.id}
-							title={trip.name}
-							name={trip.city}
+							title={trip.city}
+							city={trip.city}
+							state={trip.state}
+							country={trip.country}
+							airport={trip.airport}
+							price={trip.price}
+							airline={trip.airline}
+							origin={trip.origin}
+							departure_date={trip.departure_date}
+							return_date={trip.return_date}
 							position={{ lat: trip.lat, lng: trip.lng }}
 							onClick={this.onMarkerClick}
 						/>
@@ -93,7 +101,14 @@ class GoogleMapsContainer extends Component {
 						visible={this.state.showingInfoWindow}
 					>
 						<div className="info">
-							<h1>{this.state.selectedPlace.name}</h1>
+							<p>city: {this.state.selectedPlace.city}</p>
+							<p>state: {this.state.selectedPlace.state}</p>
+							<p>airport: {this.state.selectedPlace.airport}</p>
+							<p>price: {this.state.selectedPlace.price}</p>
+							<p>airline: {this.state.selectedPlace.airline}</p>
+							<p>departure_date: {this.state.selectedPlace.departure_date}</p>
+							<p>return_date: {this.state.selectedPlace.return_date}</p>
+							<p>origin: {this.state.selectedPlace.origin}</p>
 						</div>
 					</InfoWindow>
 				</Map>
