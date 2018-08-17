@@ -59,7 +59,7 @@ class GoogleMapsContainer extends Component {
 	};
 	render() {
 		const style = {
-			width: '100vh%',
+			width: '100vh',
 			height: '50%',
 			marginLeft: 'auto',
 			marginRight: 'auto'
@@ -101,6 +101,7 @@ class GoogleMapsContainer extends Component {
 						visible={this.state.showingInfoWindow}
 					>
 						<div className="info">
+							<p>destination</p>
 							<p>city: {this.state.selectedPlace.city}</p>
 							<p>state: {this.state.selectedPlace.state}</p>
 							<p>airport: {this.state.selectedPlace.airport}</p>
