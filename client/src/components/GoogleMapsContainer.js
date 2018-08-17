@@ -124,6 +124,6 @@ function mapStateToProps({ trips }) {
 
 export default connect(mapStateToProps)(
 	GoogleApiWrapper({
-		apiKey: `AIzaSyCE-eIQL_ZcgcmYR4iZM9yJhuFpABTz8Io`
+		apiKey: process.env.GOOGLE_MAP
 	})(GoogleMapsContainer)
 );
