@@ -32,22 +32,23 @@ module.exports = app => {
 				}
 
 				function tripList() {
-					const trips = tripData.results.slice(0, 9);
-					return trips.map(trip => {
+					const trips = tripData.results.slice(0, 10);
+					const filteredTrips = trips.map(trip => {
 						const matchedTrip = airportDetails(trip);
 						if (matchedTrip.length > 0) {
 							return (tripObject = {
 								origin: tripData.origin,
 								currency: tripData.currency,
-								tripName: matchedTrip[0].name,
-								tripCity: matchedTrip[0].city,
-								tripState: matchedTrip[0].state,
-								tripCountry: matchedTrip[0].country,
-								tripLat: matchedTrip[0].lat,
-								tripLon: matchedTrip[0].lon
+								airport: matchedTrip[0].name,
+								city: matchedTrip[0].city,
+								state: matchedTrip[0].state,
+								country: matchedTrip[0].country,
+								lat: matchedTrip[0].lat,
+								lng: matchedTrip[0].lon
 							});
 						}
 					});
+					return filteredTrips.filter(obj => obj);
 				}
 
 				console.log(tripList());

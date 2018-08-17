@@ -9,15 +9,19 @@ class Header extends Component {
 				return;
 			case false:
 				return (
-					<li>
-						<a href="/auth/google">Login with Google</a>
-					</li>
+					<div>
+						<li>
+							<a href="/auth/google">Login with Google</a>
+						</li>
+					</div>
 				);
 			default:
 				return (
+					<div>
 					<li>
 						<a href="/api/logout">Logout</a>
 					</li>
+					</div>
 				);
 		}
 	}
