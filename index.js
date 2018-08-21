@@ -7,7 +7,7 @@ const keys = require('./config/keys');
 const cors = require('cors');
 
 require('./models/User');
-require('./models/Trip');
+const Trips = require('./models/Trip');
 require('./services/passport');
 
 const app = express();
@@ -37,6 +37,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/tripRoutes')(app);
+require('./routes/cartRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));

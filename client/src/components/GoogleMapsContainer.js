@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import { bindActionCreators } from 'redux';
+import { addToCart } from '../actions/index';
 
 class GoogleMapsContainer extends Component {
 	constructor(props) {
@@ -13,6 +16,24 @@ class GoogleMapsContainer extends Component {
 
 		this.onMarkerClick = this.onMarkerClick.bind(this);
 		this.onMapClick = this.onMapClick.bind(this);
+		this.handleCart = this.handleCart.bind(this);
+	}
+
+	handleCart() {
+		const trip = [
+			{
+				city: this.state.selectedPlace.city,
+				state: this.state.selectedPlace.state,
+				airport: this.state.selectedPlace.airport,
+				price: this.state.selectedPlace.price,
+				airline: this.state.selectedPlace.airline,
+				departure_date: this.state.selectedPlace.departure_date,
+				return_date: this.state.selectedPlace.return_date,
+				origin: this.state.selectedPlace.origin
+			}
+		];
+		console.log('handle', trip);
+		this.props.addToCart(trip);
 	}
 	onMarkerClick = (props, marker, e) => {
 		this.setState({
@@ -32,7 +53,6 @@ class GoogleMapsContainer extends Component {
 
 	mapRender = () => {
 		const mapList = this.props.trips;
-		console.log(mapList);
 		return mapList.map(trip => {
 			<div>
 				<Marker
@@ -76,8 +96,6 @@ class GoogleMapsContainer extends Component {
 					zoom={3}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
-					{console.log('trip', this.props.trips)}
-
 					{this.props.trips.map(trip => (
 						<Marker
 							key={trip.id}
@@ -111,6 +129,7 @@ class GoogleMapsContainer extends Component {
 							<p>return_date: {this.state.selectedPlace.return_date}</p>
 							<p>origin: {this.state.selectedPlace.origin}</p>
 						</div>
+						<Button onClick={this.handleCart.bind(this)}>add to cart</Button>
 					</InfoWindow>
 				</Map>
 			</div>
@@ -121,9 +140,16 @@ class GoogleMapsContainer extends Component {
 function mapStateToProps({ trips }) {
 	return { trips };
 }
-
-export default connect(mapStateToProps)(
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators(
+		{
+			addToCart: addToCart
+		},
+		dispatch
+	);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(
 	GoogleApiWrapper({
-		apiKey: process.env.GOOGLE_MAP
+		apiKey: 'AIzaSyCj0s2dIclgG_bAOMUq_8JDG5_9oqcvo4s'
 	})(GoogleMapsContainer)
 );

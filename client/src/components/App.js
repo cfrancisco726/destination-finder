@@ -20,6 +20,7 @@ class App extends Component {
 					<div>
 						<Header />
 						<Route exact path="/" component={Landing} />
+						<Route exact path="/mapList" component={GoogleMapsContainer} />
 					</div>
 				</BrowserRouter>
 			</div>

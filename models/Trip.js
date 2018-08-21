@@ -2,13 +2,16 @@ const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
 const tripsSchema = new Schema({
+	city: String,
+	state: String,
 	origin: String,
-	destination: String,
-	departure_date: String,
-	return_date: String,
+	airport: String,
 	price: String,
 	airline: String,
-	_user: { type: Schema.Types.ObjectId, ref: 'User' }
+	departure_date: String,
+	return_date: String,
+	origin: String,
 });
 
-mongoose.model('trips', tripsSchema);
+const Trips = mongoose.model('Trips', tripsSchema);
+module.exports = Trips;

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 class Header extends Component {
 	renderContent() {
@@ -18,25 +21,29 @@ class Header extends Component {
 			default:
 				return (
 					<div>
-					<li>
-						<a href="/api/logout">Logout</a>
-					</li>
+						<li>
+							<a href="/api/logout">Logout</a>
+						</li>
 					</div>
 				);
 		}
 	}
 	render() {
 		return (
-			<nav>
-				<div className="nav-wrapper">
-					<Link to={'/'} className="left brand-logo">
-						Destination Finder
-					</Link>
-					<ul className="right">
-						<li>{this.renderContent()}</li>
-					</ul>
-				</div>
-			</nav>
+			<div>
+				<AppBar position="static">
+					<Toolbar>
+						<Typography variant="title" color="inherit">
+							<Link to={'/'} className="navbar-brand">
+								Destination Finder
+							</Link>
+							<ul>
+								<li>{this.renderContent()}</li>
+							</ul>
+						</Typography>
+					</Toolbar>
+				</AppBar>
+			</div>
 		);
 	}
 }

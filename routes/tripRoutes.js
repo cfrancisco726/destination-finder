@@ -60,7 +60,7 @@ module.exports = app => {
 				res.send(tripList());
 			})
 			.catch(error => {
-				console.log(error);
+				console.log('error', error);
 				res.send({ error });
 			});
 	});
