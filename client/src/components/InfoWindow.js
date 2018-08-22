@@ -16,6 +16,23 @@ class InfoWindow extends Component {
 		}
 	}
 
+	renderInfoWindow() {
+		let { map, google, mapCenter } = this.props;
+		const iw = (this.infowindow = new google.maps.InfoWindow({
+			content: 'hello'
+		}));
+		google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));
+		google.maps.event.addListener(iw, 'domready', () => {
+			document.getElementById('buttonCart').addEventListener('click', () => {
+				this.handleCart.bind(this);
+			});
+		});
+		// google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
+	}
+	renderChildren() {
+		const { children } = this.props;
+		return ReactDOMServer.renderToString(children);
+	}
 	openWindow() {
 		this.infowindow.open(this.props.map, this.props.marker);
 	}
@@ -25,29 +42,6 @@ class InfoWindow extends Component {
 	updateContent() {
 		const content = this.renderChildren();
 		this.infowindow.setContent(content);
-	}
-	renderChildren() {
-		const { children } = this.props;
-		return ReactDOMServer.renderToString(children);
-	}
-	renderInfoWindow() {
-		let { map, google, mapCenter } = this.props;
-		const iw = (this.infowindow = new google.maps.InfoWindow({
-			content: '<'
-		}));
-		google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));
-		google.maps.event.addListener(
-			iw,
-			'domready',
-			this.onOpen.bind(this),
-			() => {
-				var buttonCart = document.getElementById('buttonCart');
-				buttonCart.addEventListener('click', () => {
-					this.handlecart.bind(this);
-				});
-			}
-		);
-		// google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
 	}
 	onOpen() {
 		if (this.props.onOpen) this.props.onOpen();

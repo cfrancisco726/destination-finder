@@ -18,25 +18,25 @@ class GoogleMapsContainer extends Component {
 
 		this.onMarkerClick = this.onMarkerClick.bind(this);
 		this.onMapClick = this.onMapClick.bind(this);
-		// this.handleCart = this.handleCart.bind(this);
+		this.handleCart = this.handleCart.bind(this);
 	}
 
-	// handleCart = () => {
-	// 	const trip = [
-	// 		{
-	// 			city: this.state.selectedPlace.city,
-	// 			state: this.state.selectedPlace.state,
-	// 			airport: this.state.selectedPlace.airport,
-	// 			price: this.state.selectedPlace.price,
-	// 			airline: this.state.selectedPlace.airline,
-	// 			departure_date: this.state.selectedPlace.departure_date,
-	// 			return_date: this.state.selectedPlace.return_date,
-	// 			origin: this.state.selectedPlace.origin
-	// 		}
-	// 	];
-	// 	console.log('handle', trip);
-	// 	this.props.addToCart(trip);
-	// };
+	handleCart = () => {
+		const trip = [
+			{
+				city: this.state.selectedPlace.city,
+				state: this.state.selectedPlace.state,
+				airport: this.state.selectedPlace.airport,
+				price: this.state.selectedPlace.price,
+				airline: this.state.selectedPlace.airline,
+				departure_date: this.state.selectedPlace.departure_date,
+				return_date: this.state.selectedPlace.return_date,
+				origin: this.state.selectedPlace.origin
+			}
+		];
+		console.log('handle', trip);
+		// this.props.addToCart(trip);
+	};
 
 	onMarkerClick = (props, marker, e) => {
 		this.setState({
@@ -103,7 +103,8 @@ class GoogleMapsContainer extends Component {
 					<InfoWindow
 						marker={this.state.activeMarker}
 						visible={this.state.showingInfoWindow}
-						onClose={this.onInfoWindowClose}>
+						onClose={this.onInfoWindowClose}
+						onClick={this.handleCart.bind(this)}
 					>
 						<div className="info">
 							<p>destination</p>
@@ -115,7 +116,7 @@ class GoogleMapsContainer extends Component {
 							<p>departure_date: {this.state.selectedPlace.departure_date}</p>
 							<p>return_date: {this.state.selectedPlace.return_date}</p>
 							<p>origin: {this.state.selectedPlace.origin}</p>
-							{console.log(this.state.selectedPlace.city)}
+							{console.log('state',this.state.selectedPlace)}
 						</div>
 						<Button id="buttonCart" color="primary">
 							add to cart{' '}
