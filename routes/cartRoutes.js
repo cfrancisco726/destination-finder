@@ -3,6 +3,7 @@ const Trips = require('../models/Trip');
 module.exports = app => {
 	app.post('/api/cart', function(req, res) {
 		var trip = req.body;
+		console.log('from map', trip);
 
 		Trips.create(trip, function(err, cart) {
 			if (err) {

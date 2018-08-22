@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+import { GoogleApiWrapper, Map, Marker, GoogleMap } from 'google-maps-react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import ReactDOMServer from 'react-dom/server';
 import { bindActionCreators } from 'redux';
 import { addToCart } from '../actions/index';
+import InfoWindow from './InfoWindow';
 
 class GoogleMapsContainer extends Component {
 	constructor(props) {
@@ -16,31 +18,33 @@ class GoogleMapsContainer extends Component {
 
 		this.onMarkerClick = this.onMarkerClick.bind(this);
 		this.onMapClick = this.onMapClick.bind(this);
-		this.handleCart = this.handleCart.bind(this);
+		// this.handleCart = this.handleCart.bind(this);
 	}
 
-	handleCart() {
-		const trip = [
-			{
-				city: this.state.selectedPlace.city,
-				state: this.state.selectedPlace.state,
-				airport: this.state.selectedPlace.airport,
-				price: this.state.selectedPlace.price,
-				airline: this.state.selectedPlace.airline,
-				departure_date: this.state.selectedPlace.departure_date,
-				return_date: this.state.selectedPlace.return_date,
-				origin: this.state.selectedPlace.origin
-			}
-		];
-		console.log('handle', trip);
-		this.props.addToCart(trip);
-	}
+	// handleCart = () => {
+	// 	const trip = [
+	// 		{
+	// 			city: this.state.selectedPlace.city,
+	// 			state: this.state.selectedPlace.state,
+	// 			airport: this.state.selectedPlace.airport,
+	// 			price: this.state.selectedPlace.price,
+	// 			airline: this.state.selectedPlace.airline,
+	// 			departure_date: this.state.selectedPlace.departure_date,
+	// 			return_date: this.state.selectedPlace.return_date,
+	// 			origin: this.state.selectedPlace.origin
+	// 		}
+	// 	];
+	// 	console.log('handle', trip);
+	// 	this.props.addToCart(trip);
+	// };
+
 	onMarkerClick = (props, marker, e) => {
 		this.setState({
 			selectedPlace: props,
 			activeMarker: marker,
 			showingInfoWindow: true
 		});
+		console.log('markerClick');
 	};
 	onMapClick = props => {
 		if (this.state.showingInfoWindow) {
@@ -49,34 +53,16 @@ class GoogleMapsContainer extends Component {
 				activeMarker: null
 			});
 		}
+		console.log('mapclick');
 	};
 
-	mapRender = () => {
-		const mapList = this.props.trips;
-		return mapList.map(trip => {
-			<div>
-				<Marker
-					onClick={this.onMarkerClick}
-					title={'Changing Colors Garage'}
-					position={{ lat: trip.tripLat, lng: trip.tripLon }}
-					name={trip.tripCity}
-				/>
-				<InfoWindow
-					marker={this.state.activeMarker}
-					visible={this.state.showingInfoWindow}
-				>
-					<div>
-						<p>airport: {trip.tripName}</p>
-						<p>city: {trip.tripCity}</p>
-						<p>departure date: {trip.departure_date}</p>
-						<p>return date: {trip.return_date}</p>
-						<p>price: {trip.price}</p>
-						<p>airline: {trip.airline}</p>
-					</div>
-				</InfoWindow>
-			</div>;
+	onInfoWindowClose = () => {
+		this.setState({
+			showingInfoWindow: false,
+			activeMarker: null
 		});
 	};
+
 	render() {
 		const style = {
 			width: '100vh',
@@ -117,6 +103,7 @@ class GoogleMapsContainer extends Component {
 					<InfoWindow
 						marker={this.state.activeMarker}
 						visible={this.state.showingInfoWindow}
+						onClose={this.onInfoWindowClose}>
 					>
 						<div className="info">
 							<p>destination</p>
@@ -128,8 +115,11 @@ class GoogleMapsContainer extends Component {
 							<p>departure_date: {this.state.selectedPlace.departure_date}</p>
 							<p>return_date: {this.state.selectedPlace.return_date}</p>
 							<p>origin: {this.state.selectedPlace.origin}</p>
+							{console.log(this.state.selectedPlace.city)}
 						</div>
-						<Button onClick={this.handleCart.bind(this)}>add to cart</Button>
+						<Button id="buttonCart" color="primary">
+							add to cart{' '}
+						</Button>
 					</InfoWindow>
 				</Map>
 			</div>

@@ -11,12 +11,10 @@ module.exports = app => {
 
 	app.post('/api/trip', (req, res) => {
 		const trip = req.body;
-		console.log('body', trip);
 
 		const URL = `${AMADEUS_URL}&origin=${trip[0].origin}&departure_date=${
 			trip[0].date
 		}&duration=${trip[0].duration}`;
-		console.log(URL);
 
 		axios
 			.get(URL)
@@ -28,12 +26,10 @@ module.exports = app => {
 						return trip.destination === airport.code;
 					});
 					return filteredAirport;
-					console.log('airport', filteredAirport);
 				}
 
 				function tripList() {
 					const trips = tripData.results.slice(0, 10);
-					console.log('list', trips);
 					const filteredTrips = trips.map(trip => {
 						const matchedTrip = airportDetails(trip);
 						if (matchedTrip.length > 0) {
@@ -55,8 +51,6 @@ module.exports = app => {
 					});
 					return filteredTrips.filter(obj => obj);
 				}
-
-				console.log(tripList());
 				res.send(tripList());
 			})
 			.catch(error => {
