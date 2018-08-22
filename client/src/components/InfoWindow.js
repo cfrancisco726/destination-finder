@@ -15,20 +15,36 @@ class InfoWindow extends Component {
 			this.updateContent();
 		}
 	}
+  renderInfoWindow() {
+    let { map, google, mapCenter } = this.props;
+    const iw = (this.infowindow = new google.maps.InfoWindow({
+      content: 'hello'
+    }));
+    google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));
+    google.maps.event.addListener(iw, 'domready', () => {
+      document.getElementById('buttonCart').addEventListener('click', () => {
+        this.handleCart.bind(this);
+      });
+    });
+    // google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
+  }
+	handleCart = () => {
+		const trip = [
+			{
+				city: this.state.selectedPlace.city,
+				state: this.state.selectedPlace.state,
+				airport: this.state.selectedPlace.airport,
+				price: this.state.selectedPlace.price,
+				airline: this.state.selectedPlace.airline,
+				departure_date: this.state.selectedPlace.departure_date,
+				return_date: this.state.selectedPlace.return_date,
+				origin: this.state.selectedPlace.origin
+			}
+		];
+		console.log('handleCart');
+		this.props.addToCart(trip);
+	};
 
-	renderInfoWindow() {
-		let { map, google, mapCenter } = this.props;
-		const iw = (this.infowindow = new google.maps.InfoWindow({
-			content: 'hello'
-		}));
-		google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));
-		google.maps.event.addListener(iw, 'domready', () => {
-			document.getElementById('buttonCart').addEventListener('click', () => {
-				this.handleCart.bind(this);
-			});
-		});
-		// google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
-	}
 	renderChildren() {
 		const { children } = this.props;
 		return ReactDOMServer.renderToString(children);
@@ -50,22 +66,6 @@ class InfoWindow extends Component {
 		if (this.props.onClose) this.props.onClose();
 	}
 
-	handleCart = () => {
-		const trip = [
-			{
-				city: this.state.selectedPlace.city,
-				state: this.state.selectedPlace.state,
-				airport: this.state.selectedPlace.airport,
-				price: this.state.selectedPlace.price,
-				airline: this.state.selectedPlace.airline,
-				departure_date: this.state.selectedPlace.departure_date,
-				return_date: this.state.selectedPlace.return_date,
-				origin: this.state.selectedPlace.origin
-			}
-		];
-		console.log('handle', trip);
-		this.props.addToCart(trip);
-	};
 	render() {
 		return null;
 	}

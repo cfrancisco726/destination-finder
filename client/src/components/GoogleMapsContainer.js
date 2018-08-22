@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { GoogleApiWrapper, Map, Marker, GoogleMap } from 'google-maps-react';
+import {
+	GoogleApiWrapper,
+	Map,
+	InfoWindow,
+	Marker,
+	GoogleMap
+} from 'google-maps-react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import ReactDOMServer from 'react-dom/server';
 import { bindActionCreators } from 'redux';
 import { addToCart } from '../actions/index';
-import InfoWindow from './InfoWindow';
+// import InfoWindow from './InfoWindow';
 
 class GoogleMapsContainer extends Component {
 	constructor(props) {
@@ -19,6 +25,21 @@ class GoogleMapsContainer extends Component {
 		this.onMarkerClick = this.onMarkerClick.bind(this);
 		this.onMapClick = this.onMapClick.bind(this);
 		this.handleCart = this.handleCart.bind(this);
+	}
+
+	renderInfoWindow() {
+		console.log('info');
+		// let { map, google, mapCenter } = this.props;
+		// const iw = (this.infowindow = new google.maps.InfoWindow({
+		// 	content: ''
+		// }));
+		// google.maps.event.addListener(iw, 'domready', () => {
+		document.getElementById('buttonCart').addEventListener('click', () => {
+			this.handleCart();
+			// alert('hello');
+		});
+		// });
+		// google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
 	}
 
 	handleCart = () => {
@@ -35,7 +56,7 @@ class GoogleMapsContainer extends Component {
 			}
 		];
 		console.log('handle', trip);
-		// this.props.addToCart(trip);
+		this.props.addToCart(trip);
 	};
 
 	onMarkerClick = (props, marker, e) => {
@@ -44,6 +65,7 @@ class GoogleMapsContainer extends Component {
 			activeMarker: marker,
 			showingInfoWindow: true
 		});
+		this.renderInfoWindow();
 		console.log('markerClick');
 	};
 	onMapClick = props => {
@@ -104,7 +126,6 @@ class GoogleMapsContainer extends Component {
 						marker={this.state.activeMarker}
 						visible={this.state.showingInfoWindow}
 						onClose={this.onInfoWindowClose}
-						onClick={this.handleCart.bind(this)}
 					>
 						<div className="info">
 							<p>destination</p>
@@ -116,7 +137,7 @@ class GoogleMapsContainer extends Component {
 							<p>departure_date: {this.state.selectedPlace.departure_date}</p>
 							<p>return_date: {this.state.selectedPlace.return_date}</p>
 							<p>origin: {this.state.selectedPlace.origin}</p>
-							{console.log('state',this.state.selectedPlace)}
+							{console.log('state', this.state.selectedPlace)}
 						</div>
 						<Button id="buttonCart" color="primary">
 							add to cart{' '}
