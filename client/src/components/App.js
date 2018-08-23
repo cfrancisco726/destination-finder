@@ -9,10 +9,6 @@ import GoogleMapsContainer from './GoogleMapsContainer';
 import '../App.css';
 
 class App extends Component {
-	componentDidMount() {
-		this.props.fetchUser();
-	}
-
 	render() {
 		return (
 			<div className="container">

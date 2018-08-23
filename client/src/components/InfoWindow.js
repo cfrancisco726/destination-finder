@@ -15,19 +15,19 @@ class InfoWindow extends Component {
 			this.updateContent();
 		}
 	}
-  renderInfoWindow() {
-    let { map, google, mapCenter } = this.props;
-    const iw = (this.infowindow = new google.maps.InfoWindow({
-      content: 'hello'
-    }));
-    google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));
-    google.maps.event.addListener(iw, 'domready', () => {
-      document.getElementById('buttonCart').addEventListener('click', () => {
-        this.handleCart.bind(this);
-      });
-    });
-    // google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
-  }
+	renderInfoWindow() {
+		let { map, google, mapCenter } = this.props;
+		const iw = (this.infowindow = new google.maps.InfoWindow({
+			content: 'hello'
+		}));
+		google.maps.event.addListener(iw, 'closeclick', this.onClose.bind(this));
+		google.maps.event.addListener(iw, 'domready', () => {
+			document.getElementById('buttonCart').addEventListener('click', () => {
+				this.handleCart.bind(this);
+			});
+		});
+		// google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
+	}
 	handleCart = () => {
 		const trip = [
 			{

@@ -28,7 +28,7 @@ module.exports = app => {
 					return filteredAirport;
 				}
 
-				function tripList() {
+				function tripSearch() {
 					const trips = tripData.results.slice(0, 10);
 					const filteredTrips = trips.map(trip => {
 						const matchedTrip = airportDetails(trip);
@@ -51,7 +51,7 @@ module.exports = app => {
 					});
 					return filteredTrips.filter(obj => obj);
 				}
-				res.send(tripList());
+				res.send(tripSearch());
 			})
 			.catch(error => {
 				console.log('error', error);

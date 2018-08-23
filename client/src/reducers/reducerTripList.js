@@ -1,17 +1,21 @@
-import { GET_CART, ADD_TO_CART, DELETE_CART_ITEM } from '../actions/types';
+import {
+	GET_TRIP_LIST,
+	ADD_TO_TRIP_LIST,
+	DELETE_TRIP_ITEM
+} from '../actions/types';
 
-export default  function(state = null, action) {
+export default function(state = null, action) {
 	switch (action.type) {
-		case GET_CART:
+		case GET_TRIP_LIST:
 			return {
 				cart: action.payload || false
 			};
-		case ADD_TO_CART:
+		case ADD_TO_TRIP_LIST:
 			return {
 				cart: action.payload || false
 			};
 			break;
-		case DELETE_CART_ITEM:
+		case DELETE_TRIP_ITEM:
 			return {
 				cart: action.payload || false
 			};

@@ -10,7 +10,7 @@ const tripsSchema = new Schema({
 	airline: String,
 	departure_date: String,
 	return_date: String,
-	origin: String,
+	origin: String
 });
 
 const Trips = mongoose.model('Trips', tripsSchema);

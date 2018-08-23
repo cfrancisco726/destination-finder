@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
 import GoogleMapsContainer from './GoogleMapsContainer';
-import Cart from './Cart';
+import TripList from './TripList';
 
 class Landing extends Component {
 	render() {
@@ -9,7 +9,7 @@ class Landing extends Component {
 			<div>
 				<SearchForm />
 				<GoogleMapsContainer />
-				<Cart />
+				<TripList />
 			</div>
 		);
 	}

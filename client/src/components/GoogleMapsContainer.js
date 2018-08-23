@@ -10,8 +10,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import ReactDOMServer from 'react-dom/server';
 import { bindActionCreators } from 'redux';
-import { addToCart } from '../actions/index';
-// import InfoWindow from './InfoWindow';
+import { addToTripList } from '../actions/index';
 
 class GoogleMapsContainer extends Component {
 	constructor(props) {
@@ -24,25 +23,17 @@ class GoogleMapsContainer extends Component {
 
 		this.onMarkerClick = this.onMarkerClick.bind(this);
 		this.onMapClick = this.onMapClick.bind(this);
-		this.handleCart = this.handleCart.bind(this);
+		this.handleTrip = this.handleTrip.bind(this);
 	}
 
 	renderInfoWindow() {
 		console.log('info');
-		// let { map, google, mapCenter } = this.props;
-		// const iw = (this.infowindow = new google.maps.InfoWindow({
-		// 	content: ''
-		// }));
-		// google.maps.event.addListener(iw, 'domready', () => {
-		document.getElementById('buttonCart').addEventListener('click', () => {
-			this.handleCart();
-			// alert('hello');
+		document.getElementById('buttonAdd').addEventListener('click', () => {
+			this.handleTrip();
 		});
-		// });
-		// google.maps.event.addListener(iw, 'domready', this.onOpen.bind(this));
 	}
 
-	handleCart = () => {
+	handleTrip = () => {
 		const trip = [
 			{
 				city: this.state.selectedPlace.city,
@@ -56,7 +47,7 @@ class GoogleMapsContainer extends Component {
 			}
 		];
 		console.log('handle', trip);
-		this.props.addToCart(trip);
+		this.props.addToTripList(trip);
 	};
 
 	onMarkerClick = (props, marker, e) => {
@@ -139,8 +130,8 @@ class GoogleMapsContainer extends Component {
 							<p>origin: {this.state.selectedPlace.origin}</p>
 							{console.log('state', this.state.selectedPlace)}
 						</div>
-						<Button id="buttonCart" color="primary">
-							add to cart{' '}
+						<Button id="buttonAdd" color="primary">
+							save trip
 						</Button>
 					</InfoWindow>
 				</Map>
@@ -155,7 +146,7 @@ function mapStateToProps({ trips }) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
-			addToCart: addToCart
+			addToTripList: addToTripList
 		},
 		dispatch
 	);
