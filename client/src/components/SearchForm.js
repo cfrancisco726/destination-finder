@@ -74,9 +74,9 @@ class SearchForm extends Component {
 							<MenuItem value="">
 								<em>None</em>
 							</MenuItem>
-							<MenuItem value={"nyc"}>nyc</MenuItem>
-							<MenuItem value={"bos"}>bos</MenuItem>
-							<MenuItem value={"hou"}>hou</MenuItem>
+							<MenuItem value={'nyc'}>nyc</MenuItem>
+							<MenuItem value={'bos'}>bos</MenuItem>
+							<MenuItem value={'hou'}>hou</MenuItem>
 						</Select>
 					</FormControl>
 					<input

@@ -30,6 +30,7 @@ class GoogleMapsContainer extends Component {
 		console.log('info');
 		document.getElementById('buttonAdd').addEventListener('click', () => {
 			this.handleTrip();
+			console.log('statetrips', this.props.trips);
 		});
 	}
 
@@ -128,7 +129,6 @@ class GoogleMapsContainer extends Component {
 							<p>departure_date: {this.state.selectedPlace.departure_date}</p>
 							<p>return_date: {this.state.selectedPlace.return_date}</p>
 							<p>origin: {this.state.selectedPlace.origin}</p>
-							{console.log('state', this.state.selectedPlace)}
 						</div>
 						<Button id="buttonAdd" color="primary">
 							save trip

@@ -18,6 +18,7 @@ module.exports = app => {
 			if (err) {
 				throw err;
 			}
+			console.log('triplist', tripList);
 			res.json(tripList);
 		});
 	});
