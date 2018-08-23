@@ -6,10 +6,11 @@ import { getTripList } from '../actions/index';
 class TripList extends Component {
 	componentDidMount() {
 		this.props.getTripList;
+		console.log('triplist', this.props.tripList);
 	}
 
 	render() {
-		return <div />;
+		return <div>{this.props.tripList}</div>;
 	}
 }
 
