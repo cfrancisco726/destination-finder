@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchTripList } from '../actions/index';
+import { fetchTripList, deleteTripItem } from '../actions/index';
 
 class TripList extends Component {
 	componentDidMount() {
 		this.props.fetchTripList();
-		console.log('tripslist', this.props.tripsList);
+		console.log('tripslist', this.props.triplist);
 	}
-	//
+
+	onDelete = trip => {
+		console.log('delete', trip);
+		this.props.deleteTripItem(trip);
+	};
 	renderTrips() {
-		return this.props.tripsList.map(trip => {
+		return this.props.triplist.map(trip => {
 			return (
 				<div key={trip._id}>
 					<ul>
+						<li>{trip._id}</li>
 						<li>{trip.city}</li>
 						<li>{trip.state}</li>
 						<li>{trip.airport}</li>
@@ -23,24 +28,28 @@ class TripList extends Component {
 						<li>{trip.return_date}</li>
 						<li>{trip.origin}</li>
 					</ul>
+					<button>delete</button>
 				</div>
 			);
 		});
 	}
 
 	render() {
-		return <div />;
+		return <div>{this.renderTrips()}</div>;
 	}
 }
 
-function mapStateToProps({ tripsList }) {
-	return { tripsList };
+function mapStateToProps({ triplist }) {
+	return {
+		triplist
+	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
 		{
-			fetchTripList: fetchTripList
+			fetchTripList: fetchTripList,
+			deleteTripItem: deleteTripItem
 		},
 		dispatch
 	);

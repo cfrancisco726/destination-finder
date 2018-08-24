@@ -8,5 +8,5 @@ export default combineReducers({
 	auth: authReducer,
 	form: reduxForm,
 	trips: reducerTrip,
-	tripsList: reducerTripList
+	triplist: reducerTripList
 });

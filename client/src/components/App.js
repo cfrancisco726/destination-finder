@@ -5,7 +5,8 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-import GoogleMapsContainer from './GoogleMapsContainer';
+import TripList from './TripList';
+
 import '../App.css';
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
 					<div>
 						<Header />
 						<Route exact path="/" component={Landing} />
-						<Route exact path="/mapList" component={GoogleMapsContainer} />
+						<Route exact path="/trips" component={TripList} />
 					</div>
 				</BrowserRouter>
 			</div>

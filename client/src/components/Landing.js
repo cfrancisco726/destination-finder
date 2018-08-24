@@ -9,7 +9,6 @@ class Landing extends Component {
 			<div>
 				<SearchForm />
 				<GoogleMapsContainer />
-				<TripList />
 			</div>
 		);
 	}

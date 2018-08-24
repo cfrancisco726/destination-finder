@@ -10,8 +10,9 @@ export const fetchUser = () => async dispatch => {
 
 export const fetchTrip = trip => async dispatch => {
 	const res = await axios.post('/api/trip', trip);
+	console.log(res);
 
-	dispatch({ type: 'FETCH_TRIP', payload: res });
+	dispatch({ type: 'FETCH_TRIP', payload: res.data });
 };
 
 export function fetchTripList() {

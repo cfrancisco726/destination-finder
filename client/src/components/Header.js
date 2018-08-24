@@ -38,6 +38,9 @@ class Header extends Component {
 								Destination Finder
 							</Link>
 							<ul>
+								<li>
+									<Link to={'/trips'}>saved trips</Link>
+								</li>
 								<li>{this.renderContent()}</li>
 							</ul>
 						</Typography>
