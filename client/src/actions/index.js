@@ -47,12 +47,12 @@ export function addToTripList(trip) {
 			});
 	};
 }
-export function deleteTripItem(trip) {
+export function deleteTripItem(id) {
 	return function(dispatch) {
 		axios
-			.post('/api/triplist', trip)
+			.delete('/api/triplist/' + id)
 			.then(function(res) {
-				dispatch({ type: 'DELETE_TRIP_ITEM', payload: res.data });
+				dispatch({ type: 'DELETE_TRIP_ITEM', payload: id });
 			})
 			.catch(function(err) {
 				dispatch({

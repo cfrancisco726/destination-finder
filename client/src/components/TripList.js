@@ -9,9 +9,9 @@ class TripList extends Component {
 		console.log('tripslist', this.props.triplist);
 	}
 
-	onDelete = trip => {
-		console.log('delete', trip);
-		this.props.deleteTripItem(trip);
+	onDelete = _id => {
+		console.log('delete', _id);
+		this.props.deleteTripItem(_id);
 	};
 	renderTrips() {
 		return this.props.triplist.map(trip => {
@@ -28,10 +28,10 @@ class TripList extends Component {
 						<li>{trip.return_date}</li>
 						<li>{trip.origin}</li>
 					</ul>
-					<button>delete</button>
+					<button onClick={this.onDelete.bind(this, trip._id)}>delete</button>
 				</div>
 			);
-		});
+		}, this);
 	}
 
 	render() {
@@ -39,9 +39,9 @@ class TripList extends Component {
 	}
 }
 
-function mapStateToProps({ triplist }) {
+function mapStateToProps(state) {
 	return {
-		triplist
+		triplist: state.triplist.trips
 	};
 }
 
