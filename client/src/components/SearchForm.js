@@ -11,7 +11,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const cities = ['none', 'nyc', 'bos', 'sea', 'hou', 'las'];
+const cities = ['nyc', 'bos', 'sea', 'hou', 'las', 'par'];
 
 class SearchForm extends Component {
 	constructor(props) {
@@ -74,9 +74,7 @@ class SearchForm extends Component {
 							<MenuItem value="">
 								<em>None</em>
 							</MenuItem>
-							<MenuItem value={'nyc'}>nyc</MenuItem>
-							<MenuItem value={'bos'}>bos</MenuItem>
-							<MenuItem value={'hou'}>hou</MenuItem>
+							{cities.map(city => <MenuItem value={city}>{city}</MenuItem>)}
 						</Select>
 					</FormControl>
 					<input
