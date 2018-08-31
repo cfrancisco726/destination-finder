@@ -19,7 +19,6 @@ import {
 } from 'react-bootstrap';
 import _ from 'lodash';
 
-<<<<<<< HEAD
 const origins = [
 	{ city: 'New York', state: 'New York', iata_code: 'NYC' },
 	{ city: 'Charleston', state: 'South Carolina', iata_code: 'CHS' },
@@ -60,9 +59,6 @@ const origins = [
 	{ city: 'Raleigh', state: 'North Carolina', iata_code: 'RDU' },
 	{ city: 'Cleveland', state: 'Ohio', iata_code: 'CLE' }
 ];
-=======
-const cities = ['nyc', 'bos', 'sea', 'hou', 'las', 'par'];
->>>>>>> b53b65e5ab9718a6a3d3b7a63bf784545a7af185
 
 class SearchForm extends Component {
 	constructor(props) {
@@ -123,7 +119,6 @@ class SearchForm extends Component {
 			);
 		}, this);
 		return (
-<<<<<<< HEAD
 			<div className="search-form">
 				<Row className="search-row">
 					<Form onSubmit={this.onFormSubmit}>
@@ -138,8 +133,7 @@ class SearchForm extends Component {
 						<Col className="duration">
 							<FormGroup>
 								<FormControl
-								bsStyle="primary"
-								
+									bsStyle="primary"
 									type="text"
 									name="duration"
 									placeholder="duration"
@@ -154,46 +148,6 @@ class SearchForm extends Component {
 						</Col>
 					</Form>
 				</Row>
-=======
-			<div>
-				<form onSubmit={this.onFormSubmit}>
-					<FormControl>
-						<InputLabel htmlFor="origin">Origin</InputLabel>
-						<Select
-							value={this.state.originInput}
-							onChange={this.onInputChange}
-							inputProps={{
-								name: 'originInput',
-								id: 'origin'
-							}}
-						>
-							<MenuItem value="">
-								<em>None</em>
-							</MenuItem>
-							{cities.map(city => <MenuItem value={city}>{city}</MenuItem>)}
-						</Select>
-					</FormControl>
-					<input
-						type="text"
-						name="dateInput"
-						placeholder="date xxxx-xx-xx"
-						className=""
-						value={this.state.dateInput}
-						onChange={this.onInputChange}
-					/>
-					<input
-						type="text"
-						name="durationInput"
-						placeholder="number of days"
-						className=""
-						value={this.state.durationInput}
-						onChange={this.onInputChange}
-					/>
-					<span>
-						<button type="submit">Submit</button>
-					</span>
-				</form>
->>>>>>> b53b65e5ab9718a6a3d3b7a63bf784545a7af185
 			</div>
 		);
 	}
