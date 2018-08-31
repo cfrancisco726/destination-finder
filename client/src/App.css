@@ -1,3 +1,39 @@
 .input-group {
 	width: 50%;
 }
+
+body {
+	background: url('./images/background.jpg');
+	background-color: #191f3e;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	font-family: 'Lato', sans-serif;
+}
+
+.map-container {
+	position: relative;
+	vertical-align: middle;
+	margin-top: 10%;
+}
+
+.search-form {
+	margin-top: 20%;
+}
+
+.header {
+	background: 0;
+	font-color: white;
+	border: 0px solid;
+	text-align: center;
+}
+.navbar-brand {
+	text-align: center;
+}
+
+.landing {
+	text-align: center;
+}

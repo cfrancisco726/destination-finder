@@ -16,10 +16,12 @@ module.exports = app => {
 			trip[0].date
 		}&duration=${trip[0].duration}`;
 
-		axios
-			.get(URL)
+		axios.get(URL);
+		console
+			.log(URL)
 			.then(resp => {
 				const tripData = resp.data;
+				console.log('tripdata', tripData);
 
 				function airportDetails(trip) {
 					const filteredAirport = airports.filter(airport => {
@@ -53,7 +55,7 @@ module.exports = app => {
 				}
 				res.send(tripSearch());
 			})
-			.catch(error => {
+			.catch(function(error) {
 				console.log('error', error);
 				res.send({ error });
 			});

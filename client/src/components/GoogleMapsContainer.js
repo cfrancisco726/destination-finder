@@ -29,7 +29,7 @@ class GoogleMapsContainer extends Component {
 	renderInfoWindow() {
 		console.log('info');
 		document.getElementById('buttonAdd').addEventListener('click', () => {
-			console.log()
+			console.log();
 			this.handleTrip();
 		});
 	}
@@ -79,21 +79,21 @@ class GoogleMapsContainer extends Component {
 
 	render() {
 		const style = {
-			width: '100vh',
-			height: '50%',
+			width: '75vh',
+			height: '50vh',
 			marginLeft: 'auto',
 			marginRight: 'auto'
 		};
 
 		return (
-			<div>
+			<div className="map-container">
 				<Map
 					item
 					xs={12}
 					style={style}
 					google={this.props.google}
 					onClick={this.onMapClick}
-					zoom={3}
+					zoom={2}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
 					{this.props.trips.map(trip => (
