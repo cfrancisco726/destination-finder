@@ -40,7 +40,7 @@ const origins = [
 	{ city: 'Phoenix', state: 'Arizona', iata_code: 'PHX' },
 	{ city: 'San Antonio', state: 'Texas', iata_code: 'SVZ' },
 	{ city: 'San Jose', state: 'California', iata_code: 'SJC' },
-	{ city: 'Austin', state: 'Texas', iata_code: 'AUM' },
+	{ city: 'Austin', state: 'Texas', iata_code: 'ASQ' },
 	{ city: 'Jacksonville', state: 'Florida', iata_code: 'JAX' },
 	{ city: 'Indianapolis', state: 'Indiana', iata_code: 'IND' },
 	{ city: 'Columbus', state: 'Ohio', iata_code: 'OLU' },
@@ -65,7 +65,7 @@ class SearchForm extends Component {
 		super(props);
 
 		this.state = {
-			originInput: '',
+			origin: '',
 			duration: '',
 			date: '',
 			anchorEl: null
@@ -74,12 +74,7 @@ class SearchForm extends Component {
 		this.onInputChange = this.onInputChange.bind(this);
 
 		this.onFormSubmit = this.onFormSubmit.bind(this);
-		this.handleDate = this.handleDate.bind(this);
 	}
-
-	handleDate = (event, date) => {
-		this.setState({ date: date });
-	};
 
 	handleClick = event => {
 		this.setState({ anchorEl: event.currentTarget });
@@ -98,7 +93,7 @@ class SearchForm extends Component {
 
 		const trip = [
 			{
-				origin: this.state.originInput,
+				origin: this.state.origin,
 				date: this.state.date,
 				duration: this.state.duration
 			}
@@ -106,40 +101,54 @@ class SearchForm extends Component {
 		this.props.fetchTrip(trip);
 		this.setState({ origin: '', date: '', duration: '' });
 	}
+
 	render() {
 		const { anchorEl } = this.state;
 		const open = Boolean(anchorEl);
 
+		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
+			return (
+				<MenuItem
+					key={i}
+					name={origin.iata_code}
+					value={this.state.origin}
+					onClick={this.onInputChange}
+				>
+					{origin.city}
+				</MenuItem>
+			);
+		}, this);
 		return (
 			<div className="search-form">
-				<Form inline onSubmit={this.onFormSubmit}>
-					<FormGroup>
-						<ControlLabel>Origin</ControlLabel>
-						<DropdownButton
-
-						>
-							<MenuItem>
-								<em>None</em>
-							</MenuItem>
-							{_.sortBy(origins, ['city']).map(origin => (
-								<MenuItem value={origin.iata_code}>{origin.city}</MenuItem>
-							))}
-						</DropdownButton>
-					</FormGroup>
-
-					<FormGroup>
-						<ControlLabel>duration</ControlLabel>
-						<FormControl
-							type="text"
-							name="duration"
-							placeholder="duration"
-							className=""
-							value={this.state.duration}
-							onChange={this.onInputChange}
-						/>
-					</FormGroup>
-					<Button type="submit">Submit</Button>
-				</Form>
+				<Row className="search-row">
+					<Form onSubmit={this.onFormSubmit}>
+						<Col>
+							<DropdownButton
+								bsStyle="primary"
+								title={!this.state.origin ? 'Origin' : this.state.orgin}
+							>
+								{cityList}
+							</DropdownButton>
+						</Col>
+						<Col className="duration">
+							<FormGroup>
+								<FormControl
+								bsStyle="primary"
+								
+									type="text"
+									name="duration"
+									placeholder="duration"
+									className=""
+									value={this.state.duration}
+									onChange={this.onInputChange}
+								/>
+							</FormGroup>
+						</Col>
+						<Col>
+							<Button type="submit">Submit</Button>
+						</Col>
+					</Form>
+				</Row>
 			</div>
 		);
 	}
