@@ -59,7 +59,7 @@ class SearchForm extends Component {
 		const open = Boolean(anchorEl);
 
 		return (
-			<div>
+			<div className="searchForm">
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl>
 						<InputLabel htmlFor="origin">Origin</InputLabel>
@@ -78,7 +78,7 @@ class SearchForm extends Component {
 						</Select>
 					</FormControl>
 					<input
-						type="text"
+						type="date"
 						name="dateInput"
 						placeholder="date xxxx-xx-xx"
 						className=""

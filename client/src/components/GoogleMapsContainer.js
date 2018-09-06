@@ -86,7 +86,7 @@ class GoogleMapsContainer extends Component {
 		};
 
 		return (
-			<div>
+			<div className="map-container">
 				<Map
 					item
 					xs={12}

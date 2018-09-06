@@ -31,21 +31,21 @@ class Header extends Component {
 	render() {
 		return (
 			<div>
-				<AppBar position="static">
-					<Toolbar>
-						<Typography variant="title" color="inherit">
-							<Link to={'/'} className="navbar-brand">
-								Destination Finder
-							</Link>
-							<ul>
-								<li>
-									<Link to={'/trips'}>saved trips</Link>
-								</li>
-								<li>{this.renderContent()}</li>
-							</ul>
-						</Typography>
-					</Toolbar>
-				</AppBar>
+				<ul className="nav">
+					<li className="log">
+						<Link to={'/'}>
+							<img
+								src={require('../images/logo.jpg')}
+								alt="about"
+								width="20%"
+							/>
+						</Link>
+					</li>
+					<li>
+						<Link to={'/trips'}>saved trips</Link>
+					</li>
+					<li>{this.renderContent()}</li>
+				</ul>
 			</div>
 		);
 	}
