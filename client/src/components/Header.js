@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import { Nav, NavItem, Navbar, Badge } from 'react-bootstrap';
 
 class Header extends Component {
 	renderContent() {
@@ -30,6 +28,7 @@ class Header extends Component {
 	}
 	render() {
 		return (
+<<<<<<< HEAD
 			<div>
 				<ul className="nav">
 					<li className="log">
@@ -47,6 +46,30 @@ class Header extends Component {
 					<li >{this.renderContent()}</li>
 				</ul>
 			</div>
+=======
+			<Navbar inverse fixedTop className="header">
+				<Navbar.Header>
+					<Navbar.Brand>
+						<a href={'/'} className="navbar-brand">
+							<img
+								src={require('../images/logo.jpg')}
+								alt="about"
+								width="30%"
+							/>
+						</a>
+					</Navbar.Brand>
+					<Navbar.Toggle />
+				</Navbar.Header>
+				<Navbar.Collapse>
+					<Nav pullRight>
+						<NavItem eventKey={1} href="/trips">
+							saved Trips
+						</NavItem>
+						<NavItem eventKey={2}>{this.renderContent()}</NavItem>
+					</Nav>
+				</Navbar.Collapse>
+			</Navbar>
+>>>>>>> b27375fb7858363987ab2704e91642f9f67891d6
 		);
 	}
 }

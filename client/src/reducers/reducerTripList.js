@@ -7,8 +7,8 @@ export default function(state = { trips: [] }, action) {
 		case 'DELETE_TRIP_ITEM':
 			const currentTripToDelete = [...state.trips];
 
-			const indexToDelete = currentTripToDelete.findIndex(record => {
-				return record._id == action.payload;
+			const indexToDelete = currentTripToDelete.findIndex(trip => {
+				return trip._id == action.payload;
 			});
 
 			return {

@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrip } from '../actions/index';
-<<<<<<< HEAD
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import origins from '../origins';
-import _ from 'lodash';
-=======
 import {
 	MenuItem,
 	Form,
@@ -31,6 +19,7 @@ import {
 } from 'react-bootstrap';
 import _ from 'lodash';
 
+<<<<<<< HEAD
 const origins = [
 	{ city: 'New York', state: 'New York', iata_code: 'NYC' },
 	{ city: 'Charleston', state: 'South Carolina', iata_code: 'CHS' },
@@ -71,29 +60,33 @@ const origins = [
 	{ city: 'Raleigh', state: 'North Carolina', iata_code: 'RDU' },
 	{ city: 'Cleveland', state: 'Ohio', iata_code: 'CLE' }
 ];
->>>>>>> b27375fb7858363987ab2704e91642f9f67891d6
+=======
+const cities = ['nyc', 'bos', 'sea', 'hou', 'las', 'par'];
+>>>>>>> b53b65e5ab9718a6a3d3b7a63bf784545a7af185
 
 class SearchForm extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-<<<<<<< HEAD
-			originInput: '',
-			dateInput: '',
-			durationInput: ''
-=======
 			origin: '',
 			duration: '',
 			date: '',
 			anchorEl: null
->>>>>>> b27375fb7858363987ab2704e91642f9f67891d6
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
 
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
+
+	handleClick = event => {
+		this.setState({ anchorEl: event.currentTarget });
+	};
+
+	handleClose = () => {
+		this.setState({ anchorEl: null });
+	};
 
 	onInputChange(event) {
 		this.setState({ [event.target.name]: event.target.value });
@@ -114,19 +107,8 @@ class SearchForm extends Component {
 	}
 
 	render() {
-
-		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
-			return (
-				<MenuItem
-					key={i}
-					name={origin}
-					value={origin.iata_code}
-					onClick={this.onInputChange}
-				>
-					{origin.city}
-				</MenuItem>
-			);
-		}, this);
+		const { anchorEl } = this.state;
+		const open = Boolean(anchorEl);
 
 		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
 			return (
@@ -142,7 +124,38 @@ class SearchForm extends Component {
 		}, this);
 		return (
 <<<<<<< HEAD
-			<div className="searchForm">
+			<div className="search-form">
+				<Row className="search-row">
+					<Form onSubmit={this.onFormSubmit}>
+						<Col>
+							<DropdownButton
+								bsStyle="primary"
+								title={!this.state.origin ? 'Origin' : this.state.orgin}
+							>
+								{cityList}
+							</DropdownButton>
+						</Col>
+						<Col className="duration">
+							<FormGroup>
+								<FormControl
+								bsStyle="primary"
+								
+									type="text"
+									name="duration"
+									placeholder="duration"
+									className=""
+									value={this.state.duration}
+									onChange={this.onInputChange}
+								/>
+							</FormGroup>
+						</Col>
+						<Col>
+							<Button type="submit">Submit</Button>
+						</Col>
+					</Form>
+				</Row>
+=======
+			<div>
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl>
 						<InputLabel htmlFor="origin">Origin</InputLabel>
@@ -157,11 +170,11 @@ class SearchForm extends Component {
 							<MenuItem value="">
 								<em>None</em>
 							</MenuItem>
-							{cityList}
+							{cities.map(city => <MenuItem value={city}>{city}</MenuItem>)}
 						</Select>
 					</FormControl>
 					<input
-						type="date"
+						type="text"
 						name="dateInput"
 						placeholder="date xxxx-xx-xx"
 						className=""
@@ -180,37 +193,7 @@ class SearchForm extends Component {
 						<button type="submit">Submit</button>
 					</span>
 				</form>
-=======
-			<div className="search-form">
-				<Row className="search-row">
-					<Form onSubmit={this.onFormSubmit}>
-						<Col>
-							<DropdownButton
-								bsStyle="primary"
-								title={!this.state.origin ? 'Origin' : this.state.orgin}
-							>
-								{cityList}
-							</DropdownButton>
-						</Col>
-						<Col className="duration">
-							<FormGroup>
-								<FormControl
-									bsStyle="primary"
-									type="text"
-									name="duration"
-									placeholder="duration"
-									className=""
-									value={this.state.duration}
-									onChange={this.onInputChange}
-								/>
-							</FormGroup>
-						</Col>
-						<Col>
-							<Button type="submit">Submit</Button>
-						</Col>
-					</Form>
-				</Row>
->>>>>>> b27375fb7858363987ab2704e91642f9f67891d6
+>>>>>>> b53b65e5ab9718a6a3d3b7a63bf784545a7af185
 			</div>
 		);
 	}
