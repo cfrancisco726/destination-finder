@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
 class Header extends Component {
 	renderContent() {
@@ -11,41 +8,31 @@ class Header extends Component {
 			case null:
 				return;
 			case false:
-				return (
-					<div>
-						<li>
-							<a href="/auth/google">Login with Google</a>
-						</li>
-					</div>
-				);
+				return <a href="/auth/google">LOGIN WITH GOOGLE</a>;
 			default:
-				return (
-					<div>
-						<li>
-							<a href="/api/logout">Logout</a>
-						</li>
-					</div>
-				);
+				return <a href="/api/logout">LOGOUT</a>;
 		}
 	}
 	render() {
 		return (
 			<div>
-				<ul className="nav">
-					<li className="log">
-						<Link to={'/'}>
-							<img
-								src={require('../images/logo.jpg')}
-								alt="about"
-								width="20%"
-							/>
-						</Link>
-					</li>
-					<li>
-						<Link to={'/trips'}>saved trips</Link>
-					</li>
-					<li >{this.renderContent()}</li>
-				</ul>
+				<div>
+					<ul>
+						<li>
+							<a href="/trips">SAVED TRIPS</a>
+						</li>
+						<li>{this.renderContent()}</li>
+					</ul>
+				</div>
+				<div className="nav">
+					<a href="/" className="logo">
+						<img
+							src={require('../images/logo.jpg')}
+							alt="about"
+							width="250px"
+						/>
+					</a>
+				</div>
 			</div>
 		);
 	}

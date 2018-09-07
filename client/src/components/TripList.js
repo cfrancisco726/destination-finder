@@ -33,6 +33,7 @@ class TripList extends Component {
 							DELETE
 						</a>
 						<table>
+						<tbody>
 							<tr>
 								<th>Origin</th>
 								<th>Destination</th>
@@ -47,8 +48,10 @@ class TripList extends Component {
 								<td>{trip.departure_date}</td>
 								<td>{trip.return_date}</td>
 							</tr>
+							</tbody>
 						</table>
 						<table>
+						<tbody>
 							<tr>
 								<th>Airline</th>
 								<th>Destination Airport</th>
@@ -62,6 +65,7 @@ class TripList extends Component {
 
 								<td>${trip.price}</td>
 							</tr>
+							</tbody>
 						</table>
 					</Paper>
 				</div>
