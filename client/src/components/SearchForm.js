@@ -11,7 +11,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import origins from '../origins';
-import _ from 'lodash'
+import _ from 'lodash';
 
 class SearchForm extends Component {
 	constructor(props) {
@@ -20,22 +20,13 @@ class SearchForm extends Component {
 		this.state = {
 			originInput: '',
 			dateInput: '',
-			durationInput: '',
-			anchorEl: null
+			durationInput: ''
 		};
 
 		this.onInputChange = this.onInputChange.bind(this);
 
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
-
-	handleClick = event => {
-		this.setState({ anchorEl: event.currentTarget });
-	};
-
-	handleClose = () => {
-		this.setState({ anchorEl: null });
-	};
 
 	onInputChange(event) {
 		this.setState({ [event.target.name]: event.target.value });
@@ -55,8 +46,6 @@ class SearchForm extends Component {
 		this.setState({ originInput: '', dateInput: '', durationInput: '' });
 	}
 	render() {
-		const { anchorEl } = this.state;
-		const open = Boolean(anchorEl);
 
 		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
 			return (

@@ -21,9 +21,71 @@ body {
 .nav {
 	text-align: center;
 	list-style-type: none;
+	color: green;
+	text-decoration: none;
 }
 
 .map-container {
 	vertical-align: middle;
 	margin-top: 2%;
+}
+
+.tripcontainer {
+	display: grid;
+	width: 80%;
+	margin: auto;
+	margin-top: 2%;
+}
+
+.paper {
+}
+
+table {
+	width: 100%;
+	margin: 50px;
+	padding-bottom: 40px;
+	table-layout: fixed;
+	margin-bottom: 60px;
+}
+
+th {
+	text-align: left;
+}
+
+.delete-button {
+	float: right;
+	color: #2b717d;
+	cursor: pointer;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+.delete-button:hover {
+	color: blue;
+}
+
+.newsearch {
+	margin-left: 10%;
+	padding-bottom: 10px;
+	color: white;
+	text-decoration: none;
+}
+newsearch:hover {
+	color: blue;
+}
+
+.box {
+	height: 30px;
+	line-height: 30px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background: #89cff0;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: verdana;
+	display: block;
+	color: white;
+	display: block;
+	padding: 10px;
+	border: 1px solid gray;
+	border-bottom: none;
 }

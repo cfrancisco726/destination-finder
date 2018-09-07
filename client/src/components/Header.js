@@ -44,7 +44,7 @@ class Header extends Component {
 					<li>
 						<Link to={'/trips'}>saved trips</Link>
 					</li>
-					<li>{this.renderContent()}</li>
+					<li >{this.renderContent()}</li>
 				</ul>
 			</div>
 		);

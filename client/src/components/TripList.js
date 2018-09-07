@@ -5,17 +5,6 @@ import { fetchTripList, deleteTripItem } from '../actions/index';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-const style = {
-	root: {
-		flexGrow: 1
-	},
-	paper: {
-		textAlign: 'center',
-		width: '100%',
-		margin: 20
-	}
-};
-
 class TripList extends Component {
 	componentDidMount() {
 		this.props.fetchTripList();
@@ -34,36 +23,58 @@ class TripList extends Component {
 	renderTrips() {
 		return this.props.triplist.map(trip => {
 			return (
-				<div>
-					<Grid container>
-						<Grid item key={trip._id}>
-							<Paper style={style.paper}>
-								<Grid item sm>
-									{trip.origin}
-								</Grid>
-								<Grid item sm>
-									{trip.city}
-									{trip.state}
-								</Grid>
-								<Grid item sm>
-									{trip.departure_date}
-								</Grid>
-								<Grid item sm>
-									{trip.return_date}
-								</Grid>
-								<button onClick={this.onDelete.bind(this, trip._id)}>
-									delete
-								</button>
-							</Paper>
-						</Grid>
-					</Grid>
+				<div item key={trip._id}>
+					<Paper className="paper">
+						<div className="box">AIR TICKET</div>
+						<a
+							className="delete-button"
+							onClick={this.onDelete.bind(this, trip._id)}
+						>
+							DELETE
+						</a>
+						<table>
+							<tr>
+								<th>Origin</th>
+								<th>Destination</th>
+								<th>Departing</th>
+								<th>Returning</th>
+							</tr>
+							<tr>
+								<td>{trip.origin}</td>
+								<td>
+									{trip.city}, {trip.state}
+								</td>
+								<td>{trip.departure_date}</td>
+								<td>{trip.return_date}</td>
+							</tr>
+						</table>
+						<table>
+							<tr>
+								<th>Airline</th>
+								<th>Destination Airport</th>
+								<th />
+								<th>Total Price</th>
+							</tr>
+							<tr>
+								<td>{trip.airline}</td>
+								<td>{trip.airport}</td>
+								<td />
+
+								<td>${trip.price}</td>
+							</tr>
+						</table>
+					</Paper>
 				</div>
 			);
 		}, this);
 	}
 
 	render() {
-		return <div>{this.renderTrips()}</div>;
+		return (
+			<div>
+				<div className="tripcontainer">{this.renderTrips()}</div>
+			</div>
+		);
 	}
 }
 
