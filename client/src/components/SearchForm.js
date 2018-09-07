@@ -10,8 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
-const cities = ['nyc', 'bos', 'sea', 'hou', 'las', 'par'];
+import origins from '../origins';
+import _ from 'lodash'
 
 class SearchForm extends Component {
 	constructor(props) {
@@ -58,6 +58,19 @@ class SearchForm extends Component {
 		const { anchorEl } = this.state;
 		const open = Boolean(anchorEl);
 
+		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
+			return (
+				<MenuItem
+					key={i}
+					name={origin}
+					value={origin.iata_code}
+					onClick={this.onInputChange}
+				>
+					{origin.city}
+				</MenuItem>
+			);
+		}, this);
+
 		return (
 			<div className="searchForm">
 				<form onSubmit={this.onFormSubmit}>
@@ -74,7 +87,7 @@ class SearchForm extends Component {
 							<MenuItem value="">
 								<em>None</em>
 							</MenuItem>
-							{cities.map(city => <MenuItem value={city}>{city}</MenuItem>)}
+							{cityList}
 						</Select>
 					</FormControl>
 					<input
