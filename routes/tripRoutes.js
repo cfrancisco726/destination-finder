@@ -55,8 +55,8 @@ module.exports = app => {
 				res.send(tripSearch());
 			})
 			.catch(error => {
-				console.log('ERROR', error);
-				throw error;
+				console.log('test', error);
+				res.send(error);
 			});
 	});
 };

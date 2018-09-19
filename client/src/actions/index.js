@@ -8,13 +8,6 @@ export const fetchUser = () => async dispatch => {
 	dispatch({ type: 'FETCH_USER', payload: res.data });
 };
 
-// export const fetchTrip = trip => async dispatch => {
-// 	const res = await axios.post('/api/trip', trip);
-// 	console.log(res);
-//
-// 	dispatch({ type: 'FETCH_TRIP', payload: res.data });
-// };
-
 export function fetchTrip(trip) {
 	return function(dispatch) {
 		axios
@@ -43,8 +36,7 @@ export function fetchTripList() {
 			})
 			.catch(function(err) {
 				dispatch({
-					type: 'FETCH_TRIP_LIST_REJECTED',
-					msg: 'error when getting the trip from session'
+					type: 'FETCH_TRIP_LIST_REJECTED'
 				});
 			});
 	};
@@ -59,8 +51,7 @@ export function addToTripList(trip) {
 			})
 			.catch(function(err) {
 				dispatch({
-					type: 'ADD_TO_TRIP_LIST_REJECTED',
-					msg: 'error when adding to the trip list'
+					type: 'ADD_TO_TRIP_LIST_REJECTED'
 				});
 			});
 	};
@@ -75,7 +66,6 @@ export function deleteTripItem(id) {
 			.catch(function(err) {
 				dispatch({
 					type: 'DELETE_TRIP_ITEM_REJECTED',
-					msg: 'error when deleting from the trip list'
 				});
 			});
 	};

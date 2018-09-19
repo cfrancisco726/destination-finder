@@ -3,6 +3,7 @@ export default function(state = [], action) {
 		case 'FETCH_TRIP':
 			return action.payload || false;
 			break;
+
 		default:
 			return state;
 	}

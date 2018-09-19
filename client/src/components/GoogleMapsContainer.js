@@ -18,18 +18,20 @@ class GoogleMapsContainer extends Component {
 		this.state = {
 			showingInfoWindow: false,
 			activeMarker: {},
-			selectedPlace: {}
+			selectedPlace: {},
+			saveButton: 'SAVE TRIP'
 		};
 
 		this.onMarkerClick = this.onMarkerClick.bind(this);
 		this.onMapClick = this.onMapClick.bind(this);
 		this.handleTrip = this.handleTrip.bind(this);
+		this.onbuttonClick = this.onbuttonClick.bind(this);
 	}
 
 	renderInfoWindow() {
 		console.log('info');
 		document.getElementById('buttonAdd').addEventListener('click', () => {
-			console.log();
+			this.onbuttonClick();
 			this.handleTrip();
 		});
 	}
@@ -73,7 +75,14 @@ class GoogleMapsContainer extends Component {
 	onInfoWindowClose = () => {
 		this.setState({
 			showingInfoWindow: false,
-			activeMarker: null
+			activeMarker: null,
+			saveButton: 'SAVE TRIP'
+		});
+	};
+
+	onbuttonClick = () => {
+		this.setState({
+			saveButton: 'Saved'
 		});
 	};
 
@@ -93,7 +102,7 @@ class GoogleMapsContainer extends Component {
 					style={style}
 					google={this.props.google}
 					onClick={this.onMapClick}
-					zoom={1}
+					zoom={2}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
 					{this.props.trips.map(trip => (
@@ -132,7 +141,7 @@ class GoogleMapsContainer extends Component {
 							{console.log('state', this.state.selectedPlace)}
 						</div>
 						<Button id="buttonAdd" color="primary">
-							save trip
+							{this.state.saveButton}
 						</Button>
 					</InfoWindow>
 				</Map>
