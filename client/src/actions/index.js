@@ -8,12 +8,30 @@ export const fetchUser = () => async dispatch => {
 	dispatch({ type: 'FETCH_USER', payload: res.data });
 };
 
-export const fetchTrip = trip => async dispatch => {
-	const res = await axios.post('/api/trip', trip);
-	console.log(res);
+// export const fetchTrip = trip => async dispatch => {
+// 	const res = await axios.post('/api/trip', trip);
+// 	console.log(res);
+//
+// 	dispatch({ type: 'FETCH_TRIP', payload: res.data });
+// };
 
-	dispatch({ type: 'FETCH_TRIP', payload: res.data });
-};
+export function fetchTrip(trip) {
+	return function(dispatch) {
+		axios
+			.post('/api/trip', trip)
+			.then(function(res) {
+				dispatch({ type: 'FETCH_TRIP', payload: res.data });
+				console.log('trips', res);
+			})
+			.catch(function(error) {
+				console.log('error', error);
+				dispatch({
+					type: 'FETCH_TRIP_REJECTED',
+					msg: 'invalid entry'
+				});
+			});
+	};
+}
 
 export function fetchTripList() {
 	return function(dispatch) {

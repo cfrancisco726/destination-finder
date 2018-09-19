@@ -20,6 +20,7 @@ module.exports = app => {
 			.get(URL)
 			.then(resp => {
 				const tripData = resp.data;
+				console.log('resp', resp.data);
 
 				function airportDetails(trip) {
 					const filteredAirport = airports.filter(airport => {
@@ -54,8 +55,8 @@ module.exports = app => {
 				res.send(tripSearch());
 			})
 			.catch(error => {
-				console.log('error', error);
-				res.send({ error });
+				console.log('ERROR', error);
+				throw error;
 			});
 	});
 };

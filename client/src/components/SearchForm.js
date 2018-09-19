@@ -46,7 +46,6 @@ class SearchForm extends Component {
 		this.setState({ originInput: '', dateInput: '', durationInput: '' });
 	}
 	render() {
-
 		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
 			return (
 				<MenuItem
@@ -78,6 +77,9 @@ class SearchForm extends Component {
 							</MenuItem>
 							{cityList}
 						</Select>
+						<FormHelperText id="name-error-text">
+							{!this.props.msg ? '' : this.props.msg}
+						</FormHelperText>
 					</FormControl>
 					<input
 						type="date"
@@ -104,8 +106,14 @@ class SearchForm extends Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return {
+		msg: state.triperror.msg
+	};
+}
+
 function MapDispatchToProps(dispatch) {
 	return bindActionCreators({ fetchTrip }, dispatch);
 }
 
-export default connect(null, MapDispatchToProps)(SearchForm);
+export default connect(mapStateToProps, MapDispatchToProps)(SearchForm);
