@@ -65,7 +65,7 @@ export function deleteTripItem(id) {
 			})
 			.catch(function(err) {
 				dispatch({
-					type: 'DELETE_TRIP_ITEM_REJECTED',
+					type: 'DELETE_TRIP_ITEM_REJECTED'
 				});
 			});
 	};

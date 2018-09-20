@@ -11,6 +11,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import origins from '../origins';
+import TextField from '@material-ui/core/TextField';
 import _ from 'lodash';
 
 class SearchForm extends Component {
@@ -43,17 +44,16 @@ class SearchForm extends Component {
 			}
 		];
 		this.props.fetchTrip(trip);
-		this.setState({ originInput: '', dateInput: '', durationInput: '' });
+		this.setState({
+			originInput: '',
+			dateInput: '',
+			durationInput: ''
+		});
 	}
 	render() {
 		const cityList = _.sortBy(origins, ['city']).map(function(origin, i) {
 			return (
-				<MenuItem
-					key={i}
-					name={origin}
-					value={origin.iata_code}
-					onClick={this.onInputChange}
-				>
+				<MenuItem key={i} value={origin.iata_code} onClick={this.onInputChange}>
 					{origin.city}
 				</MenuItem>
 			);
@@ -68,35 +68,41 @@ class SearchForm extends Component {
 							value={this.state.originInput}
 							onChange={this.onInputChange}
 							inputProps={{
-								name: 'originInput',
-								id: 'origin'
+								name: 'originInput'
 							}}
+							className="originForm"
 						>
 							<MenuItem value="">
 								<em>None</em>
 							</MenuItem>
 							{cityList}
 						</Select>
+					</FormControl>
+					<FormControl>
+						<TextField
+							type="date"
+							name="dateInput"
+							placeholder="date xxxx-xx-xx"
+							className="dateForm"
+							value={this.state.dateInput}
+							onChange={this.onInputChange}
+						/>
 						<FormHelperText id="name-error-text">
-							{!this.props.msg ? '' : this.props.msg}
+							{this.props.msg}
 						</FormHelperText>
 					</FormControl>
-					<input
-						type="date"
-						name="dateInput"
-						placeholder="date xxxx-xx-xx"
-						className=""
-						value={this.state.dateInput}
-						onChange={this.onInputChange}
-					/>
-					<input
-						type="text"
-						name="durationInput"
-						placeholder="number of days"
-						className=""
-						value={this.state.durationInput}
-						onChange={this.onInputChange}
-					/>
+
+					<FormControl>
+						<TextField
+							type="text"
+							name="durationInput"
+							placeholder="number of days"
+							className="durationForm"
+							value={this.state.durationInput}
+							onChange={this.onInputChange}
+						/>
+					</FormControl>
+
 					<span>
 						<button type="submit">Submit</button>
 					</span>
@@ -108,7 +114,7 @@ class SearchForm extends Component {
 
 function mapStateToProps(state) {
 	return {
-		msg: state.triperror.msg
+		msg: state.trips.msg
 	};
 }
 

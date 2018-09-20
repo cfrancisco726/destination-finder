@@ -104,3 +104,15 @@ th {
 	padding: 10px;
 	border-bottom: none;
 }
+
+.originForm {
+	margin-top: 20px;
+	width: 200px;
+}
+
+.durationForm {
+	margin: 100px;
+}
+.dateForm {
+	margin: 10px;
+}

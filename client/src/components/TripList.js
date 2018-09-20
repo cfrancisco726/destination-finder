@@ -33,38 +33,38 @@ class TripList extends Component {
 							DELETE
 						</a>
 						<table>
-						<tbody>
-							<tr>
-								<th>Origin</th>
-								<th>Destination</th>
-								<th>Departing</th>
-								<th>Returning</th>
-							</tr>
-							<tr>
-								<td>{trip.origin}</td>
-								<td>
-									{trip.city}, {trip.state}
-								</td>
-								<td>{trip.departure_date}</td>
-								<td>{trip.return_date}</td>
-							</tr>
+							<tbody>
+								<tr>
+									<th>Origin</th>
+									<th>Destination</th>
+									<th>Departing</th>
+									<th>Returning</th>
+								</tr>
+								<tr>
+									<td>{trip.origin}</td>
+									<td>
+										{trip.city}, {trip.state}
+									</td>
+									<td>{trip.departure_date}</td>
+									<td>{trip.return_date}</td>
+								</tr>
 							</tbody>
 						</table>
 						<table>
-						<tbody>
-							<tr>
-								<th>Airline</th>
-								<th>Destination Airport</th>
-								<th />
-								<th>Total Price</th>
-							</tr>
-							<tr>
-								<td>{trip.airline}</td>
-								<td>{trip.airport}</td>
-								<td />
+							<tbody>
+								<tr>
+									<th>Airline</th>
+									<th>Destination Airport</th>
+									<th />
+									<th>Total Price</th>
+								</tr>
+								<tr>
+									<td>{trip.airline}</td>
+									<td>{trip.airport}</td>
+									<td />
 
-								<td>${trip.price}</td>
-							</tr>
+									<td>${trip.price}</td>
+								</tr>
 							</tbody>
 						</table>
 					</Paper>

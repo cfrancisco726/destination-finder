@@ -105,23 +105,25 @@ class GoogleMapsContainer extends Component {
 					zoom={2}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
-					{this.props.trips.map(trip => (
-						<Marker
-							key={trip.id}
-							title={trip.city}
-							city={trip.city}
-							state={trip.state}
-							country={trip.country}
-							airport={trip.airport}
-							price={trip.price}
-							airline={trip.airline}
-							origin={trip.origin}
-							departure_date={trip.departure_date}
-							return_date={trip.return_date}
-							position={{ lat: trip.lat, lng: trip.lng }}
-							onClick={this.onMarkerClick}
-						/>
-					))}
+					{!this.props.trips
+						? ''
+						: this.props.trips.map(trip => (
+								<Marker
+									key={trip.id}
+									title={trip.city}
+									city={trip.city}
+									state={trip.state}
+									country={trip.country}
+									airport={trip.airport}
+									price={trip.price}
+									airline={trip.airline}
+									origin={trip.origin}
+									departure_date={trip.departure_date}
+									return_date={trip.return_date}
+									position={{ lat: trip.lat, lng: trip.lng }}
+									onClick={this.onMarkerClick}
+								/>
+							))}
 
 					<InfoWindow
 						marker={this.state.activeMarker}
@@ -150,8 +152,11 @@ class GoogleMapsContainer extends Component {
 	}
 }
 
-function mapStateToProps({ trips }) {
-	return { trips };
+function mapStateToProps(state) {
+	return {
+		trips: state.trips.trips
+	};
+	console.log('state', this.props.trips);
 }
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(
