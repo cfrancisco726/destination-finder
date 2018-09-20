@@ -63,7 +63,7 @@ class SearchForm extends Component {
 			<div className="searchForm">
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl>
-						<InputLabel htmlFor="origin">Origin</InputLabel>
+					<InputLabel classname="formtext" htmlFor="origin">Origin</InputLabel>
 						<Select
 							value={this.state.originInput}
 							onChange={this.onInputChange}
@@ -105,8 +105,8 @@ class SearchForm extends Component {
 						</div>
 					</FormControl>
 
-					<span className="submitButton">
-						<button  type="submit">
+					<span>
+						<button className="submitButton" type="submit">
 							Submit
 						</button>
 					</span>
