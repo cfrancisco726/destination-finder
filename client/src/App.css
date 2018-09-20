@@ -49,6 +49,9 @@ body {
 	font-size: 14px;
 	text-decoration: none;
 }
+.header li a:hover {
+	color:blue
+}
 
 .map-container {
 	vertical-align: middle;
@@ -140,4 +143,9 @@ input[placeholder] {
 .submitButton:focus {
 	background-color: #3198aa;
 	outline: none;
+}
+
+#name-error-text {
+	margin-left: 20px;
+	color: red;
 }
