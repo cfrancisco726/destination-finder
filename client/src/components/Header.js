@@ -16,7 +16,7 @@ class Header extends Component {
 	render() {
 		return (
 			<div>
-				<div>
+				<div className="header">
 					<ul>
 						<li>
 							<a href="/trips">SAVED TRIPS</a>

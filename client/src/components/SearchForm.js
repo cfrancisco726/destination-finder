@@ -79,32 +79,36 @@ class SearchForm extends Component {
 						</Select>
 					</FormControl>
 					<FormControl>
-						<TextField
-							type="date"
-							name="dateInput"
-							placeholder="date xxxx-xx-xx"
-							className="dateForm"
-							value={this.state.dateInput}
-							onChange={this.onInputChange}
-						/>
+						<div className="dateForm">
+							<TextField
+								type="date"
+								name="dateInput"
+								placeholder="date xxxx-xx-xx"
+								value={this.state.dateInput}
+								onChange={this.onInputChange}
+							/>
+						</div>
 						<FormHelperText id="name-error-text">
 							{this.props.msg}
 						</FormHelperText>
 					</FormControl>
 
 					<FormControl>
-						<TextField
-							type="text"
-							name="durationInput"
-							placeholder="number of days"
-							className="durationForm"
-							value={this.state.durationInput}
-							onChange={this.onInputChange}
-						/>
+						<div className="durationForm">
+							<TextField
+								type="text"
+								name="durationInput"
+								placeholder="number of days"
+								value={this.state.durationInput}
+								onChange={this.onInputChange}
+							/>
+						</div>
 					</FormControl>
 
-					<span>
-						<button type="submit">Submit</button>
+					<span className="submitButton">
+						<button  type="submit">
+							Submit
+						</button>
 					</span>
 				</form>
 			</div>
