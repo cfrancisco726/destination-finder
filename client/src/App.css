@@ -50,7 +50,11 @@ body {
 	text-decoration: none;
 }
 .header li a:hover {
+<<<<<<< HEAD
 	color: #c6d9ec;
+=======
+	color:blue
+>>>>>>> 31d4561668e8e227709b4b8a54b553107019eca4
 }
 
 .map-container {

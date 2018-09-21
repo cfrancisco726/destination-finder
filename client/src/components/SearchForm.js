@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTrip } from '../actions/index';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -63,20 +62,23 @@ class SearchForm extends Component {
 			<div className="searchForm">
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl>
-					<InputLabel classname="formtext" htmlFor="origin">Origin</InputLabel>
-						<Select
+						<InputLabel classname="formtext" htmlFor="origin">
+							Origin
+						</InputLabel>
+						<select
 							value={this.state.originInput}
 							onChange={this.onInputChange}
 							inputProps={{
 								name: 'originInput'
 							}}
 							className="originForm"
+							placeholder="origin"
 						>
 							<MenuItem value="">
 								<em>None</em>
 							</MenuItem>
 							{cityList}
-						</Select>
+						</select>
 					</FormControl>
 					<FormControl>
 						<div className="dateForm">
