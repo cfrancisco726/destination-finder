@@ -7,7 +7,9 @@ class Landing extends Component {
 	render() {
 		return (
 			<div>
+				<p className="phrase">Your Next Vacation is a Budget Away</p>
 				<SearchForm />
+
 				<GoogleMapsContainer />
 			</div>
 		);

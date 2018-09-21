@@ -30,7 +30,7 @@ module.exports = app => {
 				}
 
 				function tripSearch() {
-					const trips = tripData.results.slice(0, 10);
+					const trips = tripData.results.slice(0, 20);
 					const filteredTrips = trips.map(trip => {
 						const matchedTrip = airportDetails(trip);
 						if (matchedTrip.length > 0) {

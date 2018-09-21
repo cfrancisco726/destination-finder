@@ -53,14 +53,19 @@ body {
 	color: #d9e6f2;
 }
 
+.phrase {
+	text-align: center;
+}
+
 .map-container {
 	vertical-align: middle;
 	margin-top: 2%;
+	overflow: hidden;
 }
 
 .tripcontainer {
 	display: grid;
-	width: 80%;
+	width: 60%;
 	margin: auto;
 	margin-top: 2%;
 }
@@ -88,32 +93,13 @@ th {
 	color: #132639;
 }
 
-.box {
-	height: 30px;
-	line-height: 30px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	background: #89cff0;
-	font-size: 18px;
-	font-weight: bold;
-	font-family: verdana;
-	display: block;
-	color: white;
-	display: block;
-	padding: 10px;
-	border-bottom: none;
-}
-
 .searchForm {
 	text-align: center;
 }
 
 input[placeholder] {
-	/*color: #aeb7ba;*/
 	text-transform: uppercase;
 	font-size: 13px;
-	/*padding: 10px;*/
-	/*background-color: #265e6d;*/
 }
 
 .originForm {
@@ -148,4 +134,24 @@ input[placeholder] {
 #name-error-text {
 	margin-left: 20px;
 	color: red;
+}
+
+.emptytrips {
+	text-align: center;
+}
+
+.box {
+	height: 30px;
+	line-height: 30px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	background: #89cff0;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: verdana;
+	display: block;
+	color: white;
+	display: block;
+	padding: 10px;
+	border-bottom: none;
 }

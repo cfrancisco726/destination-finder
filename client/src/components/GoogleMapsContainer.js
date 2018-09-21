@@ -29,7 +29,6 @@ class GoogleMapsContainer extends Component {
 	}
 
 	renderInfoWindow() {
-		console.log('info');
 		document.getElementById('buttonAdd').addEventListener('click', () => {
 			this.onbuttonClick();
 			this.handleTrip();
@@ -49,7 +48,6 @@ class GoogleMapsContainer extends Component {
 				origin: this.state.selectedPlace.origin
 			}
 		];
-		console.log('handle', trip);
 		this.props.addToTripList(trip);
 	};
 
@@ -60,7 +58,6 @@ class GoogleMapsContainer extends Component {
 			showingInfoWindow: true
 		});
 		this.renderInfoWindow();
-		console.log('markerClick');
 	};
 	onMapClick = props => {
 		if (this.state.showingInfoWindow) {
@@ -69,7 +66,6 @@ class GoogleMapsContainer extends Component {
 				activeMarker: null
 			});
 		}
-		console.log('mapclick');
 	};
 
 	onInfoWindowClose = () => {
@@ -158,7 +154,6 @@ class GoogleMapsContainer extends Component {
 							<p>
 								<b>Origin:</b> {this.state.selectedPlace.origin}
 							</p>
-							{console.log('state', this.state.selectedPlace)}
 						</div>
 						<Button id="buttonAdd" color="primary">
 							{this.state.saveButton}
@@ -174,7 +169,6 @@ function mapStateToProps(state) {
 	return {
 		trips: state.trips.trips
 	};
-	console.log('state', this.props.trips);
 }
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators(

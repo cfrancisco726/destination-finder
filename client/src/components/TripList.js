@@ -8,7 +8,6 @@ import Grid from '@material-ui/core/Grid';
 class TripList extends Component {
 	componentDidMount() {
 		this.props.fetchTripList();
-		console.log('tripslist', this.props.triplist);
 	}
 
 	constructor(props) {
@@ -76,6 +75,9 @@ class TripList extends Component {
 	render() {
 		return (
 			<div>
+				<p className="emptytrips">
+					{!this.props.triplist.length > 0 ? 'You Have No Saved Trips' : ' '}
+				</p>
 				<div className="tripcontainer">{this.renderTrips()}</div>
 			</div>
 		);
