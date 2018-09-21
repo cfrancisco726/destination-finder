@@ -8,7 +8,7 @@ export default function(state = { trips: [] }, action) {
 			break;
 		case 'FETCH_TRIP_REJECTED':
 			return {
-				msg: 'Invalid entry. Please try again'
+				msg: 'Invalid entry. Please try again.'
 			};
 
 		default:

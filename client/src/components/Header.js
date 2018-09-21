@@ -21,7 +21,6 @@ class Header extends Component {
 						<li>
 							<a href="/trips">SAVED TRIPS</a>
 						</li>
-						<li>{this.renderContent()}</li>
 					</ul>
 				</div>
 				<div className="nav">

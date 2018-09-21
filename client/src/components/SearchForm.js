@@ -65,7 +65,7 @@ class SearchForm extends Component {
 						<InputLabel classname="formtext" htmlFor="origin">
 							Origin
 						</InputLabel>
-						<select
+						<Select
 							value={this.state.originInput}
 							onChange={this.onInputChange}
 							inputProps={{
@@ -78,7 +78,7 @@ class SearchForm extends Component {
 								<em>None</em>
 							</MenuItem>
 							{cityList}
-						</select>
+						</Select>
 					</FormControl>
 					<FormControl>
 						<div className="dateForm">
