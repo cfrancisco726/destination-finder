@@ -186,6 +186,6 @@ function mapDispatchToProps(dispatch) {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(
 	GoogleApiWrapper({
-		apiKey: (process.env.GOOGLEMAP_KEY)
+		apiKey: process.env.REACT_APP_GOOGLEMAP
 	})(GoogleMapsContainer)
 );
