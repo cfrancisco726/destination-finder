@@ -134,14 +134,30 @@ class GoogleMapsContainer extends Component {
 							<p>
 								<b>DESTINATION</b>
 							</p>
-							<p><b>City:</b> {this.state.selectedPlace.city}</p>
-							<p><b>State:</b> {this.state.selectedPlace.state}</p>
-							<p><b>Airport:</b> {this.state.selectedPlace.airport}</p>
-							<p><b>Price:</b> {this.state.selectedPlace.price}</p>
-							<p><b>Airline:</b> {this.state.selectedPlace.airline}</p>
-							<p><b>Departure_date:</b> {this.state.selectedPlace.departure_date}</p>
-							<p><b>Return_date:</b> {this.state.selectedPlace.return_date}</p>
-							<p><b>Origin:</b> {this.state.selectedPlace.origin}</p>
+							<p>
+								<b>City:</b> {this.state.selectedPlace.city}
+							</p>
+							<p>
+								<b>State:</b> {this.state.selectedPlace.state}
+							</p>
+							<p>
+								<b>Airport:</b> {this.state.selectedPlace.airport}
+							</p>
+							<p>
+								<b>Price:</b> {this.state.selectedPlace.price}
+							</p>
+							<p>
+								<b>Airline:</b> {this.state.selectedPlace.airline}
+							</p>
+							<p>
+								<b>Departure_date:</b> {this.state.selectedPlace.departure_date}
+							</p>
+							<p>
+								<b>Return_date:</b> {this.state.selectedPlace.return_date}
+							</p>
+							<p>
+								<b>Origin:</b> {this.state.selectedPlace.origin}
+							</p>
 							{console.log('state', this.state.selectedPlace)}
 						</div>
 						<Button id="buttonAdd" color="primary">
@@ -170,6 +186,6 @@ function mapDispatchToProps(dispatch) {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(
 	GoogleApiWrapper({
-		apiKey: 'AIzaSyCj0s2dIclgG_bAOMUq_8JDG5_9oqcvo4s'
+		apiKey: process.env.GOOGLEMAP_KEY
 	})(GoogleMapsContainer)
 );
