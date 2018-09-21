@@ -102,7 +102,7 @@ class GoogleMapsContainer extends Component {
 					style={style}
 					google={this.props.google}
 					onClick={this.onMapClick}
-					zoom={2}
+					zoom={3}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
 					{!this.props.trips
