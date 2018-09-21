@@ -88,8 +88,8 @@ class GoogleMapsContainer extends Component {
 
 	render() {
 		const style = {
-			width: '100vh',
-			height: '50%',
+			width: '75vh',
+			height: '50vh',
 			marginLeft: 'auto',
 			marginRight: 'auto'
 		};

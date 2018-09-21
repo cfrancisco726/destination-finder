@@ -6,7 +6,7 @@ import TripList from './TripList';
 class Landing extends Component {
 	render() {
 		return (
-			<div>
+			<div className="landing">
 				<SearchForm />
 				<GoogleMapsContainer />
 			</div>
