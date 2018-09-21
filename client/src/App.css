@@ -109,11 +109,9 @@ th {
 }
 
 input[placeholder] {
-	/*color: #aeb7ba;*/
 	text-transform: uppercase;
 	font-size: 13px;
-	/*padding: 10px;*/
-	/*background-color: #265e6d;*/
+
 }
 
 .originForm {
