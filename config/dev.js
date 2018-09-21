@@ -5,5 +5,5 @@ module.exports = {
 	cookieKey: 'alksjfkajdfljasdfjalsdfjlasdjfljsdf',
 	amadeusKey: 'YBQ4u8A0qtbQPOxWIcJnAfG1AjfxkGCK',
 	iataKey: 'af3b5746-69ba-48f5-aa6a-31ca4ee40338',
-	googleMap: 'AIzaSyDgwxDcnmKrR9hvGfRpDKaEIstql5gRFPA'
+	googleMap: 'AIzaSyDsE97uhi-Lq-ClF7Im_8PIcNvVVctdQKI'
 };
