@@ -124,6 +124,7 @@ input[placeholder] {
 
 .paper {
 	margin-bottom: 4%;
+	padding-bottom: 30px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
