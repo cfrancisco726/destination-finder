@@ -61,7 +61,7 @@ class SearchForm extends Component {
 		return (
 			<div className="searchForm">
 				<form onSubmit={this.onFormSubmit}>
-					<FormControl>
+					<FormControl className="col-1">
 						<InputLabel classname="formtext" htmlFor="origin">
 							Origin
 						</InputLabel>
@@ -80,7 +80,7 @@ class SearchForm extends Component {
 							{cityList}
 						</Select>
 					</FormControl>
-					<FormControl>
+					<FormControl className="col-1">
 						<div className="dateForm">
 							<TextField
 								type="date"
@@ -95,7 +95,7 @@ class SearchForm extends Component {
 						</FormHelperText>
 					</FormControl>
 
-					<FormControl>
+					<FormControl className="col-1">
 						<div className="durationForm">
 							<TextField
 								type="text"

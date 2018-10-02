@@ -70,22 +70,13 @@ body {
 	margin-top: 2%;
 }
 
-table {
-	width: 100%;
-	margin: 50px;
-	padding-bottom: 40px;
-	table-layout: fixed;
-	margin-bottom: 60px;
-}
-
-th {
-	text-align: left;
-}
-
 .searchForm {
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: row wrap;
+	margin: 4%;
 }
-
 
 input[placeholder] {
 	text-transform: uppercase;
@@ -94,10 +85,11 @@ input[placeholder] {
 
 .originForm {
 	width: 200px;
+	margin: 10px;
 }
 
 .dateForm {
-	margin: 10px 10px 10px 20px;
+	margin: 10px;
 }
 
 .durationForm {
