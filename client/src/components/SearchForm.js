@@ -84,8 +84,12 @@ class SearchForm extends Component {
 						<div className="dateForm">
 							<TextField
 								type="date"
+								label="departure date"
+
 								name="dateInput"
-								placeholder="date xxxx-xx-xx"
+								InputLabelProps={{
+									shrink: true
+								}}
 								value={this.state.dateInput}
 								onChange={this.onInputChange}
 							/>
