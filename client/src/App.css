@@ -75,7 +75,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	flex-flow: row wrap;
-	margin: 4%;
+	margin: 0 12% 4% 12%;
 }
 
 input[placeholder] {
@@ -84,7 +84,7 @@ input[placeholder] {
 }
 
 .originForm {
-	width: 200px;
+	width: 150px;
 	margin: 10px;
 }
 
@@ -93,7 +93,7 @@ input[placeholder] {
 }
 
 .durationForm {
-	margin: 10px;
+	margin: 10px 60px 10px 10px;
 }
 
 .submitButton {
