@@ -63,7 +63,7 @@ class SearchForm extends Component {
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl className="col-1">
 						<InputLabel classname="formtext" htmlFor="origin">
-							Origin
+							ORIGIN
 						</InputLabel>
 						<Select
 							value={this.state.originInput}
@@ -84,8 +84,7 @@ class SearchForm extends Component {
 						<div className="dateForm">
 							<TextField
 								type="date"
-								label="departure date"
-
+								label="DEPARTURE DATE"
 								name="dateInput"
 								InputLabelProps={{
 									shrink: true
