@@ -20,7 +20,6 @@ module.exports = app => {
 			.get(URL)
 			.then(resp => {
 				const tripData = resp.data;
-				console.log('resp', resp.data);
 
 				function airportDetails(trip) {
 					const filteredAirport = airports.filter(airport => {
