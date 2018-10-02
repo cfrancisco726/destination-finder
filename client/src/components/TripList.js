@@ -31,41 +31,46 @@ class TripList extends Component {
 						>
 							DELETE
 						</a>
-						<table>
-							<tbody>
-								<tr>
-									<th>Origin</th>
-									<th>Destination</th>
-									<th>Departing</th>
-									<th>Returning</th>
-								</tr>
-								<tr>
-									<td>{trip.origin}</td>
-									<td>
-										{trip.city}, {trip.state}
-									</td>
-									<td>{trip.departure_date}</td>
-									<td>{trip.return_date}</td>
-								</tr>
-							</tbody>
-						</table>
-						<table>
-							<tbody>
-								<tr>
-									<th>Airline</th>
-									<th>Destination Airport</th>
-									<th />
-									<th>Total Price</th>
-								</tr>
-								<tr>
-									<td>{trip.airline}</td>
-									<td>{trip.airport}</td>
-									<td />
+						<div className="row-1">
+							<article className="col-1-2">
+								<h3>Origin:</h3>
+								<p> {trip.origin}</p>
+							</article>
+							<article className="col-1-2">
+								<h3>Destination:</h3>
 
-									<td>${trip.price}</td>
-								</tr>
-							</tbody>
-						</table>
+								<p>
+									{trip.city}, {trip.state}
+								</p>
+							</article>
+							<article className="col-1-2">
+								<h3>Departing:</h3>
+
+								<p>{trip.departure_date}</p>
+							</article>
+						</div>
+						<div className="row-2">
+							<article className="col-1-2">
+								<h3>Returning:</h3>
+
+								<p>{trip.return_date}</p>
+							</article>
+							<article className="col-1-2">
+								<h3>Airline:</h3>
+
+								<p>{trip.airline}</p>
+							</article>
+							<article className="col-1-2">
+								<h3>Destination Airport:</h3>
+
+								<p>{trip.airport}</p>
+							</article>
+							<article className="col-1-2">
+								<h3>Total Price:</h3>
+
+								<p>${trip.price}</p>
+							</article>
+						</div>
 					</Paper>
 				</div>
 			);
@@ -75,9 +80,6 @@ class TripList extends Component {
 	render() {
 		return (
 			<div>
-				<p className="emptytrips">
-					{!this.props.triplist.length > 0 ? 'You Have No Saved Trips' : ' '}
-				</p>
 				<div className="tripcontainer">{this.renderTrips()}</div>
 			</div>
 		);

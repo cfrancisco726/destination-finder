@@ -82,20 +82,10 @@ th {
 	text-align: left;
 }
 
-.delete-button {
-	float: right;
-	color: #2b717d;
-	cursor: pointer;
-	padding-right: 20px;
-	padding-top: 20px;
-}
-.delete-button:hover {
-	color: #132639;
-}
-
 .searchForm {
 	text-align: center;
 }
+
 
 input[placeholder] {
 	text-transform: uppercase;
@@ -140,6 +130,12 @@ input[placeholder] {
 	text-align: center;
 }
 
+.paper {
+	margin-bottom: 4%;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
 .box {
 	height: 30px;
 	line-height: 30px;
@@ -151,7 +147,38 @@ input[placeholder] {
 	font-family: verdana;
 	display: block;
 	color: white;
-	display: block;
 	padding: 10px;
 	border-bottom: none;
+	margin-bottom: 5px;
+}
+
+.delete-button {
+	float: right;
+	color: #2b717d;
+	cursor: pointer;
+	padding-right: 20px;
+	padding-top: 20px;
+}
+.delete-button:hover {
+	color: #132639;
+}
+
+.row-1 {
+	margin-top: 45px;
+	display: flex;
+	flex-flow: row wrap;
+	flex: 0 1 auto;
+}
+
+.row-2 {
+	display: flex;
+	flex-flow: row wrap;
+	flex: 0 1 auto;
+}
+[class*='col-'] {
+	flex: 0 0 92%;
+	margin: 0 4%;
+}
+.col-1-2 {
+	flex: 0 0 20%;
 }

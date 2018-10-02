@@ -17,7 +17,6 @@ export default [
 	{ city: 'Dallas', state: 'Texas', iata_code: 'DFW' },
 	{ city: 'Denver', state: 'Colorado', iata_code: 'DEN' },
 	{ city: 'Phoenix', state: 'Arizona', iata_code: 'PHX' },
-	{ city: 'San Antonio', state: 'Texas', iata_code: 'SVZ' },
 	{ city: 'San Jose', state: 'California', iata_code: 'SJC' },
 	{ city: 'Austin', state: 'Texas', iata_code: 'ASQ' },
 	{ city: 'Jacksonville', state: 'Florida', iata_code: 'JAX' },
