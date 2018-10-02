@@ -84,11 +84,12 @@ input[placeholder] {
 }
 
 .originForm {
-	width: 150px;
+	width: 200px;
 	margin: 10px;
 }
 
 .dateForm {
+	width: 200px;
 	margin: 10px;
 }
 
