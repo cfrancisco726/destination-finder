@@ -90,11 +90,11 @@ input[placeholder] {
 
 .dateForm {
 	width: 200px;
-	margin: 10px;
+	margin: 10px 10px 10px 0px;
 }
 
 .durationForm {
-	margin: 10px 30px 10px 10px;
+	margin: 10px 30px 10px 0px;
 }
 
 .submitButton {
