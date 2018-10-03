@@ -63,7 +63,7 @@ class SearchForm extends Component {
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl className="col-1">
 						<InputLabel classname="formtext" htmlFor="origin">
-							Origin
+							ORIGIN
 						</InputLabel>
 						<Select
 							value={this.state.originInput}
@@ -84,8 +84,11 @@ class SearchForm extends Component {
 						<div className="dateForm">
 							<TextField
 								type="date"
+								label="DEPARTURE DATE"
 								name="dateInput"
-								placeholder="date xxxx-xx-xx"
+								InputLabelProps={{
+									shrink: true
+								}}
 								value={this.state.dateInput}
 								onChange={this.onInputChange}
 							/>
@@ -129,3 +132,8 @@ function MapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, MapDispatchToProps)(SearchForm);
+
+
+
+// WEBPACK FOOTER //
+// ./src/components/SearchForm.js

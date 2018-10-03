@@ -19,9 +19,12 @@ body {
 }
 
 .nav {
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
+	-ms-flex-align: center;
 	align-items: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	padding-top: 10px;
 	padding-bottom: 30px;
@@ -71,9 +74,13 @@ body {
 }
 
 .searchForm {
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-align: center;
 	align-items: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-ms-flex-flow: row wrap;
 	flex-flow: row wrap;
 	margin: 0 12% 4% 12%;
 }
@@ -84,16 +91,17 @@ input[placeholder] {
 }
 
 .originForm {
-	width: 150px;
-	margin: 10px;
+	width: 200px;
+	margin: 10px 10px 10px 0px;
 }
 
 .dateForm {
-	margin: 10px;
+	width: 200px;
+	margin: 10px 10px 10px 0px;
 }
 
 .durationForm {
-	margin: 10px 30px 10px 10px;
+	margin: 10px 30px 10px 0px;
 }
 
 .submitButton {
@@ -158,20 +166,28 @@ input[placeholder] {
 
 .row-1 {
 	margin-top: 45px;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-flow: row wrap;
 	flex-flow: row wrap;
+	-ms-flex: 0 1 auto;
 	flex: 0 1 auto;
 }
 
 .row-2 {
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-flow: row wrap;
 	flex-flow: row wrap;
+	-ms-flex: 0 1 auto;
 	flex: 0 1 auto;
 }
 [class*='col-'] {
+	-ms-flex: 0 0 92%;
 	flex: 0 0 92%;
 	margin: 0 4%;
 }
 .col-1-2 {
+	-ms-flex: 0 0 20%;
 	flex: 0 0 20%;
 }
