@@ -35,5 +35,6 @@ export default [
 	{ city: 'Kansas City', state: 'Missouri', iata_code: 'MKC' },
 	{ city: 'Omaha', state: 'Nebraska', iata_code: 'OMA' },
 	{ city: 'Raleigh', state: 'North Carolina', iata_code: 'RDU' },
-	{ city: 'Cleveland', state: 'Ohio', iata_code: 'CLE' }
+	{ city: 'Cleveland', state: 'Ohio', iata_code: 'CLE' },
+	{ city: 'Madrid', state: 'Spain', iata_code: 'MAD' },
 ];

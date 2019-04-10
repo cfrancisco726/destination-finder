@@ -4,6 +4,7 @@ module.exports = {
 	mongoURI: process.env.MONGO_URI,
 	cookieKey: process.env.COOKIE_KEY,
 	amadeusKey: process.env.AMADEUS_KEY,
+	amadeusSecret: process.env.AMADEUS_SECRET,
 	googleMap: process.env.GOOGLE_MAP_KEY,
 	iataKey: process.env.IATA_KEY
 };
