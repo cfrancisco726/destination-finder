@@ -39,10 +39,8 @@ class GoogleMapsContainer extends Component {
 		const trip = [
 			{
 				city: this.state.selectedPlace.city,
-				state: this.state.selectedPlace.state,
-				airport: this.state.selectedPlace.airport,
+				country: this.state.selectedPlace.country,
 				price: this.state.selectedPlace.price,
-				airline: this.state.selectedPlace.airline,
 				departure_date: this.state.selectedPlace.departure_date,
 				return_date: this.state.selectedPlace.return_date,
 				origin: this.state.selectedPlace.origin
@@ -108,11 +106,8 @@ class GoogleMapsContainer extends Component {
 									key={trip.id}
 									title={trip.city}
 									city={trip.city}
-									state={trip.state}
 									country={trip.country}
-									airport={trip.airport}
 									price={trip.price}
-									airline={trip.airline}
 									origin={trip.origin}
 									departure_date={trip.departure_date}
 									return_date={trip.return_date}
@@ -134,16 +129,10 @@ class GoogleMapsContainer extends Component {
 								<b>City:</b> {this.state.selectedPlace.city}
 							</p>
 							<p>
-								<b>State:</b> {this.state.selectedPlace.state}
-							</p>
-							<p>
-								<b>Airport:</b> {this.state.selectedPlace.airport}
+								<b>Country:</b> {this.state.selectedPlace.country}
 							</p>
 							<p>
 								<b>Price:</b> {this.state.selectedPlace.price}
-							</p>
-							<p>
-								<b>Airline:</b> {this.state.selectedPlace.airline}
 							</p>
 							<p>
 								<b>Departure_date:</b> {this.state.selectedPlace.departure_date}

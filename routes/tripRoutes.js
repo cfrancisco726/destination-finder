@@ -49,9 +49,11 @@ module.exports = app => {
 						if (matchedTrip.length > 0) {
 							return (tripObject = {
 								origin: trip.origin,
+								city: matchedTrip[0].city,
+								country: matchedTrip[0].country,
 								lat: matchedTrip[0].lat,
 								lng: matchedTrip[0].lon,
-								price: trip.price,
+								price: trip.price.total,
 								departure_date: trip.departureDate,
 								return_date: trip.returnDate
 							});
