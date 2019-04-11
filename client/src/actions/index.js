@@ -49,6 +49,7 @@ export function addToTripList(trip) {
 			.post('/api/triplist', trip)
 			.then(function(res) {
 				dispatch({ type: 'ADD_TO_TRIP_LIST', payload: res.data });
+				console.log('data', res.data)
 			})
 			.catch(function(err) {
 				dispatch({

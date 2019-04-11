@@ -27,12 +27,13 @@ class GoogleMapsContainer extends Component {
 		this.handleTrip = this.handleTrip.bind(this);
 		this.onbuttonClick = this.onbuttonClick.bind(this);
 	}
-
+	
 	renderInfoWindow() {
-		document.getElementById('buttonAdd').addEventListener('click', () => {
-			this.onbuttonClick();
-			this.handleTrip();
-		});
+			document.getElementById('buttonAdd').addEventListener('click', () => {
+				this.onbuttonClick();
+				this.handleTrip();
+			});
+	
 	}
 
 	handleTrip = () => {
@@ -41,12 +42,19 @@ class GoogleMapsContainer extends Component {
 				city: this.state.selectedPlace.city,
 				country: this.state.selectedPlace.country,
 				price: this.state.selectedPlace.price,
-				departure_date: this.state.selectedPlace.departure_date,
-				return_date: this.state.selectedPlace.return_date,
+				departureDate: this.state.selectedPlace.departureDate,
+				returnDate: this.state.selectedPlace.returnDate,
 				origin: this.state.selectedPlace.origin
 			}
 		];
 		this.props.addToTripList(trip);
+	};
+
+	onbuttonClick = () => {
+		console.log('clicked')
+		this.setState({
+			saveButton: 'Saved'
+		});
 	};
 
 	onMarkerClick = (props, marker, e) => {
@@ -74,11 +82,7 @@ class GoogleMapsContainer extends Component {
 		});
 	};
 
-	onbuttonClick = () => {
-		this.setState({
-			saveButton: 'Saved'
-		});
-	};
+
 
 	render() {
 		const style = {
@@ -96,7 +100,7 @@ class GoogleMapsContainer extends Component {
 					style={style}
 					google={this.props.google}
 					onClick={this.onMapClick}
-					zoom={3}
+					zoom={1.5}
 					initialCenter={{ lat: '41.850033', lng: '-87.6500523' }}
 				>
 					{!this.props.trips
@@ -109,8 +113,8 @@ class GoogleMapsContainer extends Component {
 									country={trip.country}
 									price={trip.price}
 									origin={trip.origin}
-									departure_date={trip.departure_date}
-									return_date={trip.return_date}
+									departureDate={trip.departureDate}
+									returnDate={trip.returnDate}
 									position={{ lat: trip.lat, lng: trip.lng }}
 									onClick={this.onMarkerClick}
 								/>
@@ -123,7 +127,7 @@ class GoogleMapsContainer extends Component {
 					>
 						<div className="info">
 							<p>
-								<b>DESTINATION</b>
+								<b>DESTINATION </b>
 							</p>
 							<p>
 								<b>City:</b> {this.state.selectedPlace.city}
@@ -135,10 +139,10 @@ class GoogleMapsContainer extends Component {
 								<b>Price:</b> {this.state.selectedPlace.price}
 							</p>
 							<p>
-								<b>Departure_date:</b> {this.state.selectedPlace.departure_date}
+								<b>Departure_date:</b> {this.state.selectedPlace.departureDate}
 							</p>
 							<p>
-								<b>Return_date:</b> {this.state.selectedPlace.return_date}
+								<b>Return_date:</b> {this.state.selectedPlace.returnDate}
 							</p>
 							<p>
 								<b>Origin:</b> {this.state.selectedPlace.origin}

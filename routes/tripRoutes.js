@@ -54,8 +54,8 @@ module.exports = app => {
 								lat: matchedTrip[0].lat,
 								lng: matchedTrip[0].lon,
 								price: trip.price.total,
-								departure_date: trip.departureDate,
-								return_date: trip.returnDate
+								departureDate: trip.departureDate,
+								returnDate: trip.returnDate
 							});
 						}
 					});

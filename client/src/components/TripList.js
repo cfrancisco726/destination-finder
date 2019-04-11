@@ -40,30 +40,20 @@ class TripList extends Component {
 								<h3>Destination:</h3>
 
 								<p>
-									{trip.city}, {trip.state}
+									{trip.city}, {trip.country}
 								</p>
 							</article>
 							<article className="col-1-2">
 								<h3>Departing:</h3>
 
-								<p>{trip.departure_date}</p>
+								<p>{trip.departureDate}</p>
 							</article>
 						</div>
 						<div className="row-2">
 							<article className="col-1-2">
 								<h3>Returning:</h3>
 
-								<p>{trip.return_date}</p>
-							</article>
-							<article className="col-1-2">
-								<h3>Airline:</h3>
-
-								<p>{trip.airline}</p>
-							</article>
-							<article className="col-1-2">
-								<h3>Destination Airport:</h3>
-
-								<p>{trip.airport}</p>
+								<p>{trip.returnDate}</p>
 							</article>
 							<article className="col-1-2">
 								<h3>Total Price:</h3>

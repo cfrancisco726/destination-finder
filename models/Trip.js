@@ -5,8 +5,8 @@ const tripsSchema = new Schema({
 	city: String,
 	country: String,
 	price: String,
-	departure_date: String,
-	return_date: String,
+	departureDate: String,
+	returnDate: String,
 	origin: String
 });
 
