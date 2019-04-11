@@ -24,6 +24,7 @@ module.exports = app => {
 	app.delete('/api/triplist/:_id', function(req, res) {
 		var query = { _id: req.params._id };
 
+
 		Trips.remove(query, function(err, tripList) {
 			if (err) {
 			}
