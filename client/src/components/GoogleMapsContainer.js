@@ -27,27 +27,15 @@ class GoogleMapsContainer extends Component {
 		this.handleTrip = this.handleTrip.bind(this);
 		this.onbuttonClick = this.onbuttonClick.bind(this);
 	}
-	
-	renderInfoWindow() {
-			document.getElementById('buttonAdd').addEventListener('click', () => {
-				this.onbuttonClick();
-				this.handleTrip();
-			});
-	
-	}
 
-	handleTrip = () => {
-		const trip = [
-			{
-				city: this.state.selectedPlace.city,
-				country: this.state.selectedPlace.country,
-				price: this.state.selectedPlace.price,
-				departureDate: this.state.selectedPlace.departureDate,
-				returnDate: this.state.selectedPlace.returnDate,
-				origin: this.state.selectedPlace.origin
-			}
-		];
-		this.props.addToTripList(trip);
+
+	onMapClick = props => {
+		if (this.state.showingInfoWindow) {
+			this.setState({
+				showingInfoWindow: false,
+				activeMarker: null
+			});
+		}
 	};
 
 	onbuttonClick = () => {
@@ -65,14 +53,36 @@ class GoogleMapsContainer extends Component {
 		});
 		this.renderInfoWindow();
 	};
-	onMapClick = props => {
-		if (this.state.showingInfoWindow) {
-			this.setState({
-				showingInfoWindow: false,
-				activeMarker: null
+
+	renderInfoWindow() {
+		// document.addEventListener('DOMContentLoaded', function () {
+		var infoButton = document.getElementById('buttonAdd')
+		// if (infoButton){
+		infoButton.addEventListener('click', () => {
+				this.onbuttonClick();
+				this.handleTrip();
 			});
-		}
+		// }
+		// });
+	}
+
+	
+
+
+	handleTrip = () => {
+		const trip = [
+			{
+				city: this.state.selectedPlace.city,
+				country: this.state.selectedPlace.country,
+				price: this.state.selectedPlace.price,
+				departureDate: this.state.selectedPlace.departureDate,
+				returnDate: this.state.selectedPlace.returnDate,
+				origin: this.state.selectedPlace.origin
+			}
+		];
+		this.props.addToTripList(trip);
 	};
+
 
 	onInfoWindowClose = () => {
 		this.setState({
@@ -127,7 +137,7 @@ class GoogleMapsContainer extends Component {
 					>
 						<div className="info">
 							<p>
-								<b>DESTINATION </b>
+								<b>DESTINATION</b>
 							</p>
 							<p>
 								<b>City:</b> {this.state.selectedPlace.city}

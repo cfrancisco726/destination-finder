@@ -62,7 +62,7 @@ class SearchForm extends Component {
 			<div className="searchForm">
 				<form onSubmit={this.onFormSubmit}>
 					<FormControl className="col-1">
-						<InputLabel classname="formtext" htmlFor="origin">
+						<InputLabel className="formtext" htmlFor="origin">
 							ORIGIN
 						</InputLabel>
 						<Select
