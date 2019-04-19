@@ -8,6 +8,7 @@ import {
 } from 'google-maps-react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 import { bindActionCreators } from 'redux';
 import { addToTripList } from '../actions/index';
@@ -30,7 +31,7 @@ class GoogleMapsContainer extends Component {
 
 	renderInfoWindow() {
 		// document.addEventListener('DOMContentLoaded', function () {
-		  var infoButton = document.getElementById('buttonAdd')
+		var infoButton = document.getElementById('buttonAdd')
 		// if (infoButton){
 		infoButton.addEventListener('click', () => {
 				this.onbuttonClick();
@@ -39,6 +40,7 @@ class GoogleMapsContainer extends Component {
 		// }
 		// });
 	}
+
 	onMapClick = props => {
 		if (this.state.showingInfoWindow) {
 			this.setState({
@@ -61,13 +63,29 @@ class GoogleMapsContainer extends Component {
 			activeMarker: marker,
 			showingInfoWindow: true
 		});
-		this.renderInfoWindow();
+		// this.renderInfoWindow();
 	};
 
-
+	onInfoWindowOpen(props, e) {
+		const button = (
+			<Button 
+			  color="primary"
+			  onClick={e => {
+				console.log("hmapbuttoni1");
+				this.onbuttonClick();
+			  	this.handleTrip();
+			  }}
+			>
+			{this.state.saveButton}
+			</Button>
+		  );
+		ReactDOM.render(
+		React.Children.only(button),
+		  document.getElementById("buttonAdd")
+		);
+	  }
 
 	
-
 
 	handleTrip = () => {
 		const trip = [
@@ -133,6 +151,9 @@ class GoogleMapsContainer extends Component {
 					<InfoWindow
 						marker={this.state.activeMarker}
 						visible={this.state.showingInfoWindow}
+						onOpen={e => {
+							this.onInfoWindowOpen(this.props, e)
+						}}
 						onClose={this.onInfoWindowClose}
 					>
 						<div className="info">
@@ -158,9 +179,7 @@ class GoogleMapsContainer extends Component {
 								<b>Origin:</b> {this.state.selectedPlace.origin}
 							</p>
 						</div>
-						<Button id="buttonAdd" color="primary">
-							{this.state.saveButton}
-						</Button>
+					<div id="buttonAdd"  />
 					</InfoWindow>
 				</Map>
 			</div>
