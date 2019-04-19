@@ -28,7 +28,17 @@ class GoogleMapsContainer extends Component {
 		this.onbuttonClick = this.onbuttonClick.bind(this);
 	}
 
-
+	renderInfoWindow() {
+		// document.addEventListener('DOMContentLoaded', function () {
+		  var infoButton = document.getElementById('buttonAdd')
+		// if (infoButton){
+		infoButton.addEventListener('click', () => {
+				this.onbuttonClick();
+				this.handleTrip();
+			});
+		// }
+		// });
+	}
 	onMapClick = props => {
 		if (this.state.showingInfoWindow) {
 			this.setState({
@@ -54,17 +64,7 @@ class GoogleMapsContainer extends Component {
 		this.renderInfoWindow();
 	};
 
-	renderInfoWindow() {
-		// document.addEventListener('DOMContentLoaded', function () {
-		var infoButton = document.getElementById('buttonAdd')
-		// if (infoButton){
-		infoButton.addEventListener('click', () => {
-				this.onbuttonClick();
-				this.handleTrip();
-			});
-		// }
-		// });
-	}
+
 
 	
 
