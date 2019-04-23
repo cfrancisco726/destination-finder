@@ -114,6 +114,7 @@ input[placeholder] {
 
 .submitButton:hover {
 	background-color: #3f8996;
+	cursor: pointer;
 }
 
 .submitButton:focus {

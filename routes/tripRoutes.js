@@ -15,8 +15,6 @@ module.exports = app => {
 		clientSecret: keys.amadeusSecret
 	  });
 
-	console.log(keys.amadeusKey)
-
 
 	app.post('/api/trip', (req, res) => {
 		const trip = req.body;
@@ -66,7 +64,7 @@ module.exports = app => {
 			})
 			.catch(responseError => {
 				console.log('new error', responseError.code)
-				// res.status(400).json({ error: error.toString() }) ;
+				res.status(400).json({ error: error.toString() }) ;
 			});
 	});
 };
