@@ -8,7 +8,6 @@ const keys = require('../config/keys');
 const airports = require('../airports');
 
 module.exports = app => {
-	// const AMADEUS_URL = `https://test.api.amadeus.com/v1/shopping/flight-destinations?`;
 
 	const amadeus = new Amadeus({
 		clientId: keys.amadeusKey,
@@ -18,7 +17,6 @@ module.exports = app => {
 
 	app.post('/api/trip', (req, res) => {
 		const trip = req.body;
-		console.log('post',trip[0].origin)
 
 
 		amadeus.shopping.flightDestinations
@@ -57,13 +55,11 @@ module.exports = app => {
 							});
 						}
 					});
-					console.log('filteredTrip', filteredTrips)
 					return filteredTrips.filter(obj => obj);
 				}
 				res.send(tripSearch());
 			})
 			.catch(responseError => {
-				console.log('new error', responseError.code)
 				res.status(400).json({ error: error.toString() }) ;
 			});
 	});

@@ -10,15 +10,12 @@ export const fetchUser = () => async dispatch => {
 
 export function fetchTrip(trip) {
 	return function(dispatch) {
-		console.log(trip);
 		axios
 			.post('/api/trip', trip)
 			.then(function(res) {
 				dispatch({ type: 'FETCH_TRIP', payload: res.data });
-				console.log('trips', res);
 			})
 			.catch(function(error) {
-				console.log('error', error);
 				dispatch({
 					type: 'FETCH_TRIP_REJECTED',
 					msg: 'invalid entry'
@@ -33,7 +30,6 @@ export function fetchTripList() {
 			.get('/api/triplist')
 			.then(function(res) {
 				dispatch({ type: 'FETCH_TRIP_LIST', payload: res.data });
-				console.log('fetch', res.data);
 			})
 			.catch(function(err) {
 				dispatch({
@@ -49,7 +45,6 @@ export function addToTripList(trip) {
 			.post('/api/triplist', trip)
 			.then(function(res) {
 				dispatch({ type: 'ADD_TO_TRIP_LIST', payload: res.data });
-				console.log('data', res.data)
 			})
 			.catch(function(err) {
 				dispatch({

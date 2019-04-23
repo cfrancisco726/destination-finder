@@ -15,7 +15,6 @@ class TripList extends Component {
 	}
 
 	onDelete = _id => {
-		console.log('delete', _id);
 		this.props.deleteTripItem(_id);
 	};
 

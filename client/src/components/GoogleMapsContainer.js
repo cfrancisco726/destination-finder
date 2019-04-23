@@ -51,7 +51,6 @@ class GoogleMapsContainer extends Component {
 	};
 
 	onbuttonClick = () => {
-		console.log('clicked')
 		this.setState({
 			saveButton: 'Saved'
 		});
@@ -71,7 +70,6 @@ class GoogleMapsContainer extends Component {
 			<Button 
 			  color="primary"
 			  onClick={e => {
-				console.log("hmapbuttoni1");
 				this.onbuttonClick();
 			  	this.handleTrip();
 			  }}
