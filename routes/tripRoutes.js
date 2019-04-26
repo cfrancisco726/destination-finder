@@ -60,7 +60,8 @@ module.exports = app => {
 				res.send(tripSearch());
 			})
 			.catch(responseError => {
-				res.status(400).json({ error: error.toString() }) ;
+				console.log('error')
+				res.status(400).send("Error")
 			});
 	});
 };
