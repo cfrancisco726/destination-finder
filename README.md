@@ -4,7 +4,7 @@ Search for the cheapest flights based on origin city, date and trip duration.
 
 Live demo [_here_](https://destination-finder.herokuapp.com/)
 
-> Since it is hosted on heroku the initial load time may lag. Currently there are issues connecting to MongoDB atlas so trips at the moment can't be saved. Previous working database was connected to mLab. There have been changes to the API and it has not been maintained on my end.
+> Since it is hosted on heroku the initial load time may lag. Currently there are issues connecting to MongoDB atlas so trips at the moment can't be saved. Previous working database was connected to mLab. There have been changes to the API so the search function may not return results on every destination anymore.
 
 ## Description
 
